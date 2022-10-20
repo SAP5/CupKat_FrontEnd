@@ -31,7 +31,7 @@ public class GUIClienteController {
 		servico.save(cliente);
 		redirectAttributes.addFlashAttribute("message", "The user has been saved sucessfully.");
 		
-		return "redirect:/cupkat-front.herokuapp.com";
+		return "redirect:/";
 	}
 
 	//Implementar Delete
