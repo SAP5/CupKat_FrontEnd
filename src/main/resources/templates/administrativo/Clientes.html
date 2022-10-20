@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1.0 minimum-scale=1.0">
+
+<title>Home - Cupkat Admin</title>
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript"
+	th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<div class="container-fluid">
+					<a class="navbar-brand" th:href="@{/}"> <img
+						th:src="@{/images/Cupkat_logo_1.png}" />
+					</a>
+					<button class="navbar-toggler" type="button"
+						data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item"><a class="nav-link" th:href="@{/Clientes}">Clientes</a>
+							</li>
+							<li class="nav-item"><a class="nav-link"
+								href="@{/categories}">Categorias</a></li>
+							<li class="nav-item"><a class="nav-link" href="@{/products}">Produtos</a>
+							</li>
+							<li class="nav-item"><a class="nav-link" href="@{/settings}">Settings</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<div>
+			<h2 class="text">Gerenciamento Clientes</h2>
+		</div>
+		
+		<div th:if="${message != null}" class="alert alert-success text-center">
+			[[${message}]]
+		</div>
+		
+		<div>
+			<table class="table table-bordered table-striped table-hover table-responsive-xl">
+				<thead>
+					<tr class="table-dark">
+						<th scope="col">ID</th>
+						<th scope="col">Nome</th>
+						<th scope="col">Status</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="cliente : ${listClientes}">
+						<td>[[${cliente.id}]]</td>
+						<td>[[${cliente.nome}]]</td>
+						<td>[[${cliente.status}]]</td>
+						<td>
+							Edit &nbsp; Delete
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="text-center">
+			<p>Cupkat Control Panel - Copyright &copy; Cupkat</p>
+		</div>
+
+	</div>
+</body>
+</html>

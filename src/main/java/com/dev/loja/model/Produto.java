@@ -1,5 +1,5 @@
 package com.dev.loja.model;
 
-public class Funcionario {
+public class Produto {
     
 }

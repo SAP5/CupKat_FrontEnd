@@ -14,7 +14,6 @@
 	<!-- Bootstrap core CSS -->
 	<link th:href="@{css/homeCliente.css}" rel="stylesheet">
 	
-	
 </head>
 
 <body>
@@ -181,14 +180,15 @@
 			</ul>
 		  </div>
 		</div>
-	  </nav>
-
+	</nav>
 
     </header>
-    
-    
-
-    
+	<div class="content">
+		<div th:if="${message != null}" class="alert alert-success text-center">
+			[[${message}]]
+		</div>
+	</div>
+	
     <footer class="bg-faded text-muted py-5 mt-5">
 		<div class="container">
 		<div class="row">
@@ -233,7 +233,6 @@
 			</p>
         </div>
     </footer>
-    
 </div>    
     
 
