@@ -30,7 +30,7 @@
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-							<li class="nav-item"><a class="nav-link" th:href="@{/Clientes}">Clientes</a>
+							<li class="nav-item"><a class="nav-link" th:href="@{/adm/clientes}">Clientes</a>
 							</li>
 							<li class="nav-item"><a class="nav-link"
 								href="@{/categories}">Categorias</a></li>
@@ -67,7 +67,14 @@
 						<td>[[${cliente.nome}]]</td>
 						<td>[[${cliente.status}]]</td>
 						<td>
-							Edit &nbsp; Delete
+							<div class="text-center">
+								<div class="btn-group">
+									<a class="btn btn-sm btn-primary"
+										th:href="@{/adm/alteraCli/{id}(id=${cliente.id})}">Editar</a>
+									<a class="delete btn btn-sm btn-danger"
+										th:href="@{/adm/clientes/delete/{id}(id=${cliente.id})}">Excluir</a>
+								</div>
+							</div>
 						</td>
 					</tr>
 				</tbody>

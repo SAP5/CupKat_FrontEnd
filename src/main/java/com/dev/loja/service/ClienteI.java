@@ -13,7 +13,6 @@ import org.springframework.web.client.RestTemplate;
 
 import com.dev.loja.model.Cliente;
 
-import nonapi.io.github.classgraph.utils.Assert;
 
 @Service
 public class ClienteI {
@@ -47,7 +46,7 @@ public class ClienteI {
         System.out.println(result);
 	}
 
-    public void delete(String id){
+    public void delete(int id){
         RestTemplate restTemplate = new RestTemplate();
 
         String url = "https://cupkat-prj.herokuapp.com/clientes/delete/{id}";
@@ -55,4 +54,20 @@ public class ClienteI {
         restTemplate.delete(url, id, String.class);
     }
 
+    public void update(Cliente cliente, int id){
+        RestTemplate restTemplate = new RestTemplate();
+        cliente.setId(id);
+        String url = "https://cupkat-prj.herokuapp.com/clientes/update/{id}";
+
+        restTemplate.put(url, cliente, cliente.getId());
+	}
+
+    public Cliente getById(int id){
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "https://cupkat-prj.herokuapp.com/clientes/by_id/{id}";
+        
+        ResponseEntity<Cliente> result = restTemplate.getForEntity(url, Cliente.class, id);
+        
+        return result.getBody();
+    }
 }
