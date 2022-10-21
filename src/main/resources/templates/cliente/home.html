@@ -61,7 +61,9 @@
 		  
 		</nav>
 	</div>		
-
+	<div th:if="${message != null}" class="alert alert-success text-center">
+		[[${message}]]
+	</div>
 	<header class="container mt-5">
 		
 	  <div class="row">
