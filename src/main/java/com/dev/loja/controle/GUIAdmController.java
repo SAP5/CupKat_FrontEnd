@@ -35,12 +35,11 @@ public class GUIAdmController {
 	}
 
 	@GetMapping("/alteraCli/{id}")
-	public ModelAndView viewCliente(@PathVariable("id") int id) {
-		ModelAndView mv = new ModelAndView("cliente/cliente_update");
+	public String viewCliente(@PathVariable("id") int id, Model model) {
         Cliente cliente = new Cliente();
 		cliente = servico.getById(id);
-        mv.addObject("cliente", cliente);
-		return mv;
+        model.addAttribute("cliente", cliente);
+		return "administrativo/cliente_update";
 	}
 
 	@PostMapping("/clientes/update/{id}")
