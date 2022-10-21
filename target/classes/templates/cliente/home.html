@@ -122,12 +122,9 @@
 				<a class="dropdown-item" href="#">Something else here</a>
 			  </div>
 			</div>
-			
 		</div>
-	  
 	  </div>
 
-	
 	  <nav class="navbar navbar-light bg-white  rounded navbar-expand-md mt-4">
 		<div class="container-fluid">
 		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -181,65 +178,151 @@
 		  </div>
 		</div>
 	</nav>
-
     </header>
-	<div class="content">
-		<div th:if="${message != null}" class="alert alert-success text-center">
-			[[${message}]]
+	<div class="container pt-3">
+		<div class="row mt-5">
+		  <div class="col-sm">
+			<div class="card">
+			  <img th:src="@{image/produto1.jpg}" class="card-img-top" alt="Large building">
+			  <div class="card-body p-4 rounded-bottom ">
+				<h5 class="card-title fw-bold">Produto 1</h5>
+				<div class="btngroup">
+					<button type="button" class="btn btn-sm btn-secondary" title="Add to Cart" data-product-cart-url data-vvveb-action="addCart">
+						<i class="la la-shopping-cart"></i> Add to cart
+					</button>
+					<button type="button" class="btn btn-sm  btn-link" title="Add to favorites" data-product-fav-url>
+						<i class="la la-heart"></i>
+					</button>
+					<button type="button" class="btn btn-sm  btn-link" title="Add to compare" data-product-compare-url>
+						<i class="la la-exchange"></i>
+					</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="col-sm">
+			<div class="card">
+			  <img th:src="@{image/produto2.jpg}" class="card-img-top" alt="Large building">
+			  <div class="card-body p-4 rounded-bottom">
+				<h5 class="card-title fw-bold">Produto 2</h5>
+				<div class="btngroup">
+					<button type="button" class="btn btn-sm btn-secondary" title="Add to Cart" data-product-cart-url data-vvveb-action="addCart">
+						<i class="la la-shopping-cart"></i> Add to cart
+					</button>
+					<button type="button" class="btn btn-sm  btn-link" title="Add to favorites" data-product-fav-url>
+						<i class="la la-heart"></i>
+					</button>
+					<button type="button" class="btn btn-sm  btn-link" title="Add to compare" data-product-compare-url>
+						<i class="la la-exchange"></i>
+					</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="col-sm">
+			<div class="card">
+			  <img th:src="@{image/produto3.jpg}" class="card-img-top" alt="Large building">
+			  <div class="card-body rounded-bottom">
+				<h5 class="card-title fw-bold">Produto 3</h5>
+				<div class="btngroup">
+					<button type="button" class="btn btn-sm btn-secondary" title="Add to Cart" data-product-cart-url data-vvveb-action="addCart">
+						<i class="la la-shopping-cart"></i> Add to cart
+					</button>
+					<button type="button" class="btn btn-sm  btn-link" title="Add to favorites" data-product-fav-url>
+						<i class="la la-heart"></i>
+					</button>
+					<button type="button" class="btn btn-sm  btn-link" title="Add to compare" data-product-compare-url>
+						<i class="la la-exchange"></i>
+					</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="col-sm">
+			<div class="card">
+			  <img th:src="@{image/produto3.jpg}" class="card-img-top" alt="Large building">
+			  <div class="card-body p-4 rounded-bottom">
+				<h5 class="card-title fw-bold">Produto 4</h5>
+				<div class="btngroup">
+					<button type="button" class="btn btn-sm btn-secondary" title="Add to Cart" data-product-cart-url data-vvveb-action="addCart">
+						<i class="la la-shopping-cart"></i> Add to cart
+					</button>
+					<button type="button" class="btn btn-sm  btn-link" title="Add to favorites" data-product-fav-url>
+						<i class="la la-heart"></i>
+					</button>
+					<button type="button" class="btn btn-sm  btn-link" title="Add to compare" data-product-compare-url>
+						<i class="la la-exchange"></i>
+					</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="col-sm">
+			<div class="card">
+			  <img th:src="@{image/produto3.jpg}" class="card-img-top" alt="Large building">
+			  <div class="card-body p-4 rounded-bottom">
+				<h5 class="card-title fw-bold">Produto 5</h5>
+				<div class="btngroup">
+					<button type="button" class="btn btn-sm btn-secondary" title="Add to Cart" data-product-cart-url data-vvveb-action="addCart">
+						<i class="la la-shopping-cart"></i> Add to cart
+					</button>
+					<button type="button" class="btn btn-sm  btn-link" title="Add to favorites" data-product-fav-url>
+						<i class="la la-heart"></i>
+					</button>
+					<button type="button" class="btn btn-sm  btn-link" title="Add to compare" data-product-compare-url>
+						<i class="la la-exchange"></i>
+					</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
 		</div>
-	</div>
-	
-    <footer class="bg-faded text-muted py-5 mt-5">
+
+</div>
+	<footer class="bg-faded text-muted py-5 mt-5">
 		<div class="container">
 		<div class="row">
-				  <div class="col-sm-3">
-			  <h5>Information</h5>
-			  <ul class="list-unstyled">
-				  <li><a href="#">About Us</a></li>
-				  <li><a href="#">Delivery Information</a></li>
-				  <li><a href="#">Privacy Policy</a></li>
-				  <li><a href="#">Terms &amp; Conditions</a></li>
-			  </ul>
+				<div class="col-sm-3">
+			<h5>Information</h5>
+			<ul class="list-unstyled">
+				<li><a href="#">About Us</a></li>
+				<li><a href="#">Delivery Information</a></li>
+				<li><a href="#">Privacy Policy</a></li>
+				<li><a href="#">Terms &amp; Conditions</a></li>
+			</ul>
 			</div>
 				<div class="col-sm-3">
 			<h5>Customer Service</h5>
 			<ul class="list-unstyled">
-			  <li><a href="#">Contact Us</a></li>
-			  <li><a href="#">Returns</a></li>
-			  <li><a href="#">Site Map</a></li>
+			<li><a href="#">Contact Us</a></li>
+			<li><a href="#">Returns</a></li>
+			<li><a href="#">Site Map</a></li>
 			</ul>
-		  </div>
-		  <div class="col-sm-3">
+		</div>
+		<div class="col-sm-3">
 			<h5>Extras</h5>
 			<ul class="list-unstyled">
-			  <li><a href="#">Brands</a></li>
-			  <li><a href="#">Gift Certificates</a></li>
-			  <li><a href="#">Affiliate</a></li>
-			  <li><a href="#">Specials</a></li>
+			<li><a href="#">Brands</a></li>
+			<li><a href="#">Gift Certificates</a></li>
+			<li><a href="#">Affiliate</a></li>
+			<li><a href="#">Specials</a></li>
 			</ul>
-		  </div>
-		  <div class="col-sm-3">
+		</div>
+		<div class="col-sm-3">
 			<h5>My Account</h5>
 			<ul class="list-unstyled">
-			  <li><a href="#">My Account</a></li>
-			  <li><a href="#">Order History</a></li>
-			  <li><a href="#">Wish List</a></li>
-			  <li><a href="#">Newsletter</a></li>
+			<li><a href="#">My Account</a></li>
+			<li><a href="#">Order History</a></li>
+			<li><a href="#">Wish List</a></li>
+			<li><a href="#">Newsletter</a></li>
 			</ul>
-		  </div>
+		</div>
 		</div>
 			<p class="float-right">
-			  <a href="#">Back to top</a>
+			<a href="#">Back to top</a>
 			</p>
-        </div>
-    </footer>
-</div>    
-    
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+		</div>
+	</footer>    
     <script>
     $('#product-tabs a').click(function (e) {
 	  e.preventDefault()
