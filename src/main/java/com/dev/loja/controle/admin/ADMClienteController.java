@@ -1,28 +1,26 @@
-package com.dev.loja.controle;
+package com.dev.loja.controle.admin;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.dev.loja.model.Cliente;
 import com.dev.loja.service.ClienteI;
 
 @Controller
 @RequestMapping(path = "/adm")
-public class GUIAdmController {
+public class ADMClienteController {
     @Autowired
     ClienteI servico;
 
+	//CLIENTES
     @GetMapping("/clientes")
-	public String homeAdm(Model model) {
+	public String listClientes(Model model) {
 		List<Cliente> listClientes = servico.obtemClientes();
 		model.addAttribute("listClientes", listClientes); 
 		return "administrativo/Clientes";
@@ -48,5 +46,5 @@ public class GUIAdmController {
 		System.out.println("passou");
 		return "redirect:/adm/clientes";
 	}
-	
+	//FIM CLIENTE
 }

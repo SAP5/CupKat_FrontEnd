@@ -19,7 +19,7 @@
 		<div>
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 				<div class="container-fluid">
-					<a class="navbar-brand" th:href="@{/adm}"> <img
+					<a class="navbar-brand" th:href="@{/adm/clientes}"> <img
 						th:src="@{/image/logo_cupdash.png}" />
 					</a>
 					<button class="navbar-toggler" type="button"
@@ -44,41 +44,11 @@
 			</nav>
 		</div>
 		<div>
-			<h2 class="text">Gerenciamento Clientes</h2>
+			<h2 class="text">Bem - vindo ao Admin Control Panel!</h2>
 		</div>
 		
 		<div th:if="${message != null}" class="alert alert-success text-center">
 			[[${message}]]
-		</div>
-		
-		<div>
-			<table class="table table-bordered table-striped table-hover table-responsive-xl">
-				<thead>
-					<tr class="table-dark">
-						<th scope="col">ID</th>
-						<th scope="col">Nome</th>
-						<th scope="col">Status</th>
-						<th scope="col"></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="cliente : ${listClientes}">
-						<td>[[${cliente.id}]]</td>
-						<td>[[${cliente.nome}]]</td>
-						<td>[[${cliente.status}]]</td>
-						<td>
-							<div class="text-center">
-								<div class="btn-group">
-									<a class="btn btn-sm btn-primary"
-										th:href="@{/adm/alteraCli/{id}(id=${cliente.id})}">Editar</a>
-									<a class="delete btn btn-sm btn-danger"
-										th:href="@{/adm/clientes/delete/{id}(id=${cliente.id})}">Excluir</a>
-								</div>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
 		</div>
 
 		<div class="text-center">

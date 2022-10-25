@@ -16,4 +16,9 @@ public class PrincipalControle {
 		return "cliente/home";
 	}
 
+	@GetMapping("/adm")
+	public String homeAdm() {
+		return "administrativo/index";
+	}
+
 }

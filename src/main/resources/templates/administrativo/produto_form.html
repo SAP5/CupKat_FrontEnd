@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1.0 minimum-scale=1.0">
+
+<title>Home - Cupkat Admin</title>
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript"
+	th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<div class="container-fluid">
+					<a class="navbar-brand" th:href="@{/adm/clientes}"> <img
+						th:src="@{/image/logo_cupdash.png}" />
+					</a>
+					<button class="navbar-toggler" type="button"
+						data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item"><a class="nav-link" th:href="@{/adm/clientes}">Clientes</a>
+							</li>
+							<li class="nav-item"><a class="nav-link"
+								href="@{/categories}">Categorias</a></li>
+							<li class="nav-item"><a class="nav-link" href="@{/products}">Produtos</a>
+							</li>
+							<li class="nav-item"><a class="nav-link" href="@{/settings}">Settings</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<div>
+			<h2 class="text">Gerenciamento Produtos | Cadastro</h2>
+		</div>
+		
+		<div th:if="${message != null}" class="alert alert-success text-center">
+			[[${message}]]
+		</div>
+
+        <form method="post"
+        style="max-width: 700px; margin: 0 auto" th:object="${produtodto}" class="mt-5">
+			<div class="border border-secondary rounded p-5">
+				<div class="input-group flex-nowrap mb-3">
+                    <span class="input-group-text" id="addon-wrapping">Nome</span>
+                    <input type="text" class="form-control" th:field="*{nome}">
+                  </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Custo</span>
+                    <span class="input-group-text">R$ 0.00</span>
+                    <input type="number" class="form-control">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Lucro</span>
+                    <span class="input-group-text">R$ 0.00</span>
+                    <input type="number" class="form-control" th:field="*{lucro}">
+                </div>
+
+                <div class="input-group flex-nowrap mb-3">
+                    <span class="input-group-text" id="addon-wrapping">Estoque</span>
+                    <input type="number" class="form-control" th:field="*{estoque}">
+                </div>
+
+				<div class="form-group col-md-8">
+					<label for="categoria" class="col-form-label">Cores</label>
+					<div class="row-md-8">
+						<th:block th:each="cor: ${listCor}">
+							<input th:field="*{cores}" th:text="${cores}"
+							th:value="${cores}" class="form-check-input m-2" type="checkbox">
+							- <small>[[${cor.nome}]]</small>
+						</th:block>
+					</div>
+				</div>
+
+				<div class="form-group col-md-8">
+					<label for="categoria" class="col-form-label">Tamanhos</label>
+					<div class="row-md-8">
+						<th:block th:each="t: ${listT}">
+							<input th:field="*{tamanhos}" th:text="${tamanhos}"
+							th:value="${tamanhos}" class="form-check-input m-2" type="checkbox">
+							- <small>[[${t.nome}]]</small>
+						</th:block>
+					</div>
+				</div>
+
+				<div class="form-group col-md-8">
+					<label for="categoria" class="col-form-label">Categoria</label>
+					<select th:field="*{categorias} ">
+						<option th:each="p : ${listC}" th:value="${p}" th:text="${p}"></option>
+					</select>
+				</div>
+                
+
+                <div class="input-group">
+                    <span class="input-group-text m-">Descrição</span>
+                    <textarea class="form-control" th:field="*{descricao}" ></textarea>
+                  </div>
+                
+				<div class="text-center">
+					<input type="submit" value="Cadastrar" class="btn btn-primary m-3" />
+					<input type="button" value="Cancel" class="btn btn-secondary" id="buttonCancel" />
+				</div>
+			</div>
+		</form>
+
+		<div class="text-center">
+			<p>Cupkat Control Panel - Copyright &copy; Cupkat</p>
+		</div>
+
+	</div>
+</body>
+</html>

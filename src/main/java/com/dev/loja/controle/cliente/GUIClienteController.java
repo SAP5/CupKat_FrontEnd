@@ -1,4 +1,4 @@
-package com.dev.loja.controle;
+package com.dev.loja.controle.cliente;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
