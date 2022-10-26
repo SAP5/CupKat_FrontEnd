@@ -52,7 +52,7 @@
 		</div>
 
         <form method="post"
-        style="max-width: 700px; margin: 0 auto" th:object="${produtodto}" class="mt-5">
+        style="max-width: 700px; margin: 0 auto" th:action="@{/adm/saveProduto}" th:object="${produto}" class="mt-5">
 			<div class="border border-secondary rounded p-5">
 				<div class="input-group flex-nowrap mb-3">
                     <span class="input-group-text" id="addon-wrapping">Nome</span>
@@ -62,13 +62,13 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text">Custo</span>
                     <span class="input-group-text">R$ 0.00</span>
-                    <input type="number" class="form-control">
+                    <input type="text" class="form-control">
                 </div>
 
                 <div class="input-group mb-3">
                     <span class="input-group-text">Lucro</span>
                     <span class="input-group-text">R$ 0.00</span>
-                    <input type="number" class="form-control" th:field="*{lucro}">
+                    <input type="text" class="form-control" th:field="*{lucro}">
                 </div>
 
                 <div class="input-group flex-nowrap mb-3">
@@ -98,13 +98,15 @@
 					</div>
 				</div>
 
-				<div class="form-group col-md-8">
-					<label for="categoria" class="col-form-label">Categoria</label>
-					<select th:field="*{categorias} ">
-						<option th:each="p : ${listC}" th:value="${p}" th:text="${p}"></option>
-					</select>
-				</div>
+				<div class="input-group flex-nowrap mb-3">
+                    <span class="input-group-text" id="addon-wrapping">Categoria</span>
+                    <input type="number" class="form-control" th:field="*{categorias}">
+                </div>
                 
+				<div class="input-group flex-nowrap mb-3">
+                    <span class="input-group-text" id="addon-wrapping">Modelo</span>
+                    <input type="number" class="form-control" th:field="*{modelo}">
+                </div>
 
                 <div class="input-group">
                     <span class="input-group-text m-">Descrição</span>

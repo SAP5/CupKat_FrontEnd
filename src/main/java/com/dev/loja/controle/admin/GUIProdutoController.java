@@ -9,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dev.loja.model.Cor;
 import com.dev.loja.model.Produto;
@@ -34,11 +36,11 @@ public class GUIProdutoController {
     @GetMapping("/produtoCad")
 	public String formCliente(Model model) {
         ProdutoDTO produtodto = new ProdutoDTO();
-
+        Produto produto = new Produto();
         List<Tamanho> listT = new ArrayList<Tamanho>();
-        List<String> listC = Arrays.asList("", "Garrafa", "Camiseta", "Chinelo", "Caneca");
         List<String> listM = Arrays.asList("Garrafa", "Camiseta", "Chinelo", "Caneca");
         List<Cor> listCor = new ArrayList<Cor>();
+        
         Cor c1= new Cor("Rosa");
         Cor c2= new Cor("Roxo");
         Cor c3= new Cor("Lilás");
@@ -56,14 +58,30 @@ public class GUIProdutoController {
         listT.add(t3);
 
         model.addAttribute("produtodto", produtodto);
+        model.addAttribute("produto", produto);
         model.addAttribute("listT", listT);
-        model.addAttribute("listC", listC);
+        // model.addAttribute("listC", listC);
         model.addAttribute("listM", listM);
         model.addAttribute("listCor", listCor);
 
 		return "administrativo/produto_form";
 	}
 
+    @PostMapping("/saveProduto")
+	public String saveCliente(Produto produto, RedirectAttributes redirectAttributes) {
+		System.out.println(produto);
+        
+        List<Integer> cat = new ArrayList<Integer>();
+		Integer cate = 0;
+        cate = produto.getModelo();
+        cat.add(cate);
+        produto.setCategorias(cat);
+
+		servico.save(produto);
+		redirectAttributes.addFlashAttribute("message", "Produto criado com sucesso!");
+		return "redirect:/adm/produtos";
+	}
+    
     @GetMapping("/produtos/delete/{id}")
 	public String deleteCliente(@PathVariable("id") int id){
 		servico.delete(id);
