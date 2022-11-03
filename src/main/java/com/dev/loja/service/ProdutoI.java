@@ -31,7 +31,6 @@ public class ProdutoI {
             new ParameterizedTypeReference<List<ProdutoDTO>>() {
             });
         List<ProdutoDTO> produtos = resposta.getBody();
-        System.out.println(produtos);
         return produtos;
     }
     

@@ -28,10 +28,10 @@
 		  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
 			  <li class="nav-item active">
-				<a class="nav-link text-muted" href="#"><i class="la la-heart"></i> <span class="hidden-xs hidden-sm hidden-md">Wish List (0)</span></a>
+				<a class="nav-link text-muted" href="#"><i class="la la-heart"></i> <span class="hidden-xs hidden-sm hidden-md">Favoritos (0)</span></a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link text-muted" href="#"><i class="la la-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Shopping Cart</span></a>
+				<a class="nav-link text-muted" href="#"><i class="la la-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Carrinho</span></a>
 			  </li>
 			  <li class="nav-item">
 				<a class="nav-link text-muted" href="#"><i class="la la-share"></i> <span class="hidden-xs hidden-sm hidden-md">Checkout</span></a>
@@ -40,7 +40,7 @@
 			
 			<ul class="navbar-nav float-right">
 			  <li class="nav-item dropdown float-right">
-				<a class="nav-link dropdown-toggle text-muted" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="la la-dollar"></i>&ensp;USD</a>
+				<a class="nav-link dropdown-toggle text-muted" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="la la-dollar"></i>&ensp;R$</a>
 				<div class="dropdown-menu" aria-labelledby="dropdown01">
 				  <a class="dropdown-item" href="#">Action</a>
 				  <a class="dropdown-item" href="#">Another action</a>
@@ -49,7 +49,7 @@
 			  </li>
 
 			  <li class="nav-item dropdown float-right">
-				<a class="nav-link dropdown-toggle text-muted" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="la la-flag"></i>&ensp;EN</a>
+				<a class="nav-link dropdown-toggle text-muted" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="la la-flag"></i>&ensp;PT</a>
 				<div class="dropdown-menu" aria-labelledby="dropdown01">
 				  <a class="dropdown-item" href="#">Action</a>
 				  <a class="dropdown-item" href="#">Another action</a>
@@ -81,10 +81,10 @@
 		   <form class="">
 	
 				<div class="input-group input-group-lg mb-3" id="search-box">
-				  <input type="text" class="form-control default-font-size" placeholder="Search product" aria-label="Search product">
+				  <input type="text" class="form-control default-font-size" placeholder="O quê procura?" aria-label="Search product">
 
 					<select class="custom-select input-group-append form-control-lg no-border-x default-font-size">
-						<option selected="">All categories</option>
+						<option selected="">Categorias</option>
 						<option value="1">One</option>
 						<option value="2">Two</option>
 						<option value="3">Three</option>
@@ -102,7 +102,7 @@
 			
 			<div class="dropdown float-right" id="mini-cart">
 			  <a class="btn btn-link dropdown-toggle bg-faded p-0 chevron-big"  th:href="@{/cliente}" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<i class="la la-shopping-cart d-inline-block" style="font-size:42px"><span class="cart-items">3</span></i>&ensp; <div class="d-inline-block text-dark"><span class="small d-block text-left">Your cart</span><span class="font-weight-bold">$3500.05</span></div>
+				<i class="la la-shopping-cart d-inline-block" style="font-size:42px"><span class="cart-items">3</span></i>&ensp; <div class="d-inline-block text-dark"><span class="small d-block text-left">Carrinho</span><span class="font-weight-bold">R$ 3500.05</span></div>
 			  </a>
 
 			  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -114,7 +114,7 @@
 			
 			<div class="dropdown float-right" id="mini-user">
 			  <a class="btn btn-link dropdown-toggle bg-faded p-0 chevron-big" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  th:href="@{/cliente}">
-				<i class="la la-user d-inline-block" style="font-size:42px"></i>&ensp; <div class="d-inline-block text-dark"><span class="small d-block text-left">My account</span><span class="font-weight-bold">Login/Register</span></div>
+				<i class="la la-user d-inline-block" style="font-size:42px"></i>&ensp; <div class="d-inline-block text-dark"><span class="small d-block text-left">Minha conta</span><span class="font-weight-bold">Login/Cadastro</span></div>
 			  </a>
 
 			  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -134,7 +134,7 @@
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item dropdown categories-dropdown">
-					<a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="la la-bars"></i>&ensp;Categories <i class="la la-angle-down float-right"></i></a>
+					<a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="la la-bars"></i>&ensp;Categorias <i class="la la-angle-down float-right"></i></a>
 					<div class="dropdown-menu" aria-labelledby="dropdown04">
 					  <a class="dropdown-item" href="#"><i class="la la-desktop"></i> Desktops</a>
 					  <a class="dropdown-item" href="#">Another action</a>
@@ -165,7 +165,7 @@
 			  </li>
   
 			  <li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us</a>
+				<a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sobre Nós</a>
 				<div class="dropdown-menu" aria-labelledby="dropdown04">
 				  <a class="dropdown-item" href="#">FAQ</a>
 				  <a class="dropdown-item" href="#">Our Story</a>
@@ -173,7 +173,7 @@
 				</div>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="#">Contact Us</a>
+				<a class="nav-link" href="#">Contato</a>
 			  </li>
 			</ul>
 		  </div>
@@ -314,7 +314,7 @@
 			<ul class="list-unstyled">
 			<li><a href="#">My Account</a></li>
 			<li><a href="#">Order History</a></li>
-			<li><a href="#">Wish List</a></li>
+			<li><a href="#">Favoritos</a></li>
 			<li><a href="#">Newsletter</a></li>
 			</ul>
 		</div>

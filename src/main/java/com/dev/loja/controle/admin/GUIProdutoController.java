@@ -29,7 +29,7 @@ public class GUIProdutoController {
     @GetMapping("/produtos")
 	public String listProdutos(Model model) {
 		List<ProdutoDTO> listProdutos = servico.obtemProdutos();
-		model.addAttribute("listProdutos", listProdutos); 
+		model.addAttribute("listProdutos", listProdutos);
 		return "administrativo/produtos";
 	}
 
