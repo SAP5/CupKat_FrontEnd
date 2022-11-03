@@ -23,7 +23,7 @@ public class ADMClienteController {
 	public String listClientes(Model model) {
 		List<Cliente> listClientes = servico.obtemClientes();
 		model.addAttribute("listClientes", listClientes); 
-		return "administrativo/clientes";
+		return "administrativo/Clientes";
 	}
 
 	@GetMapping("/clientes/delete/{id}")
