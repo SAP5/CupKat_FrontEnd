@@ -9,9 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.dev.loja.model.Categoria;
 import com.dev.loja.model.Cliente;
+import com.dev.loja.model.Funcionario;
 import com.dev.loja.model.Modelo;
 import com.dev.loja.model.Produto;
 import com.dev.loja.service.ClienteI;
+import com.dev.loja.service.FuncionarioI;
 import com.dev.loja.service.ProdutoI;
 
 
@@ -58,6 +60,20 @@ public class LojaApplication {
 		// p2.save(produto);
 		// p2.delete(6);
 
+
+		// Funcionario func = new Funcionario("Gabriel", "ghaamorim338@gmail.com", "@Teste123");
+		// FuncionarioI service = new FuncionarioI();
+		// service.save(func);
+
+		// FuncionarioI service = new FuncionarioI();
+		// service.obtemFuncionarios();
+
+		// Funcionario func = new Funcionario("Gabriel", "ghaamorim338@gmail.com", "@Teste123");
+		// service.update(func, 2);
+		
+		// service.delete(2);
+
+		// service.getById(1);
 
 	}
 

@@ -11,14 +11,13 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.web.client.RestTemplate;
 
-import com.dev.loja.model.Cliente;
-
+import com.dev.loja.model.Funcionario;
 
 @Service
-public class ClienteI {
+public class FuncionarioI {
 
-    public List<Cliente> obtemClientes() { 
-        String url = "https://cupkat-test.herokuapp.com/clientes/"; 
+    public List<Funcionario> obtemFuncionarios() { 
+        String url = "https://cupkat-test.herokuapp.com/funcionarios/"; 
         
         HttpHeaders headers = new HttpHeaders();
         headers.set("accept", "application/json");
@@ -27,46 +26,39 @@ public class ClienteI {
         HttpEntity requestEntity = new HttpEntity<>(null, headers);
 
         RestTemplate templ = new RestTemplate();
-        ResponseEntity<List<Cliente>> resposta = templ.exchange(url,
+        ResponseEntity<List<Funcionario>> resposta = templ.exchange(url,
             HttpMethod.GET,
             requestEntity,
-            new ParameterizedTypeReference<List<Cliente>>() {
+            new ParameterizedTypeReference<List<Funcionario>>() {
             });
-        List<Cliente> clientes = resposta.getBody();
-        return clientes;
+        List<Funcionario> funcionarios = resposta.getBody();
+        return funcionarios;
     }
 
-    public void save(Cliente cliente){
+    public void save(Funcionario funcionario){
         RestTemplate restTemplate = new RestTemplate();
-
-        String url = "https://cupkat-test.herokuapp.com/clientes";
-
-        ResponseEntity<String> result = restTemplate.postForEntity(url, cliente, String.class);
-
+        String url = "https://cupkat-test.herokuapp.com/funcionarios";
+        ResponseEntity<String> result = restTemplate.postForEntity(url, funcionario, String.class);
         System.out.println(result);
 	}
 
     public void delete(int id){
         RestTemplate restTemplate = new RestTemplate();
-
-        String url = "https://cupkat-test.herokuapp.com/clientes/delete/{id}";
-
+        String url = "https://cupkat-test.herokuapp.com/funcionarios/delete/{id}";
         restTemplate.delete(url, id, String.class);
     }
 
-    public void update(Cliente cliente, int id){
+    public void update(Funcionario funcionario, int id){
         RestTemplate restTemplate = new RestTemplate();
-        cliente.setId(id);
-        String url = "https://cupkat-test.herokuapp.com/clientes/update/{id}";
-        restTemplate.put(url, cliente, cliente.getId());
+        funcionario.setId(id);
+        String url = "https://cupkat-test.herokuapp.com/funcionarios/update/{id}";
+        restTemplate.put(url, funcionario, funcionario.getId());
 	}
 
-    public Cliente getById(int id){
+    public Funcionario getById(int id){
         RestTemplate restTemplate = new RestTemplate();
         String url = "https://cupkat-test.herokuapp.com/clientes/by_id/{id}";
-        
-        ResponseEntity<Cliente> result = restTemplate.getForEntity(url, Cliente.class, id);
-        
+        ResponseEntity<Funcionario> result = restTemplate.getForEntity(url, Funcionario.class, id);
         return result.getBody();
     }
 }
