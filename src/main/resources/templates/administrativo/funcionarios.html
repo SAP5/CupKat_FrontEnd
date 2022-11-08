@@ -4,19 +4,21 @@
 <head>
     <div th:replace="fragments/headAdm :: headAdm">
     </div>
-    
-    <title>Dashboard Sidebar Menu</title> 
+    <title>Consulta Funcionários</title> 
 </head>
 <body>
+
     <nav th:replace="fragments/navBarAdm :: navBarAdm">
     </nav>
-	<div>
-		<h2 class="text">Gerenciamento Clientes</h2>
-	</div>
 	
     <section class="home">
+        
         <div class="container-fluid">
             <div class="container-fluid">
+                <div>
+                    <h2 class="text">Gerenciamento Funcionarios</h2>
+                    <a th:href="@{/adm/funcionario}">Novo Funcionario</a>
+                </div>
                 <div th:if="${message != null}" class="alert alert-success text-center">
                     [[${message}]]
                 </div>
@@ -24,7 +26,7 @@
         
                     <thead>
                             <tr>
-                                <th>CLIENTES</th>
+                                <th>FUNCIONARIOS</th>
                             </tr>
                             <tr class="">
                                 <th scope="col">ID</th>
@@ -35,17 +37,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="cliente : ${listClientes}">
-                            <td>[[${cliente.id}]]</td>
-                            <td>[[${cliente.nome}]]</td>
+                        <tr th:each="funcionario : ${listFuncionarios}">
+                            <td>[[${funcionario.id}]]</td>
+                            <td>[[${funcionario.nome}]]</td>
                             <td>
-                                <a th:if="${cliente.status == 1}">Ativo</a>
-                                <a th:if="${cliente.status == 0}">Inativo</a>
+                                <a th:if="${funcionario.status == 1}">Ativo</a>
+                                <a th:if="${funcionario.status == 0}">Inativo</a>
                             </td>
                         <td>
                             <div class="text-center">
                                 <div class="btn-group">
-                                    <a class="delete btn btn-sm btn-danger" th:href="@{/adm/clientes/delete/{id}(id=${cliente.id})}">Excluir</a>
+                                    <a class="btn btn-sm btn-primary"
+										th:href="@{/adm/alteraFunc/{id}(id=${funcionario.id})}">Editar</a>
+                                        <a class="btn btn-sm btn-danger"
+										th:href="@{/adm/funcionarios/delete/{id}(id=${funcionario.id})}">Excluir</a>
                                 </div>
                             </div>
                         </td>
@@ -58,8 +63,7 @@
         </div>
     </section>
 
-
-	<div th:replace="fragments/scriptsAdm :: scripts">
+    <div th:replace="fragments/scriptsAdm :: scripts">
     </div>
 </body>
 </html>

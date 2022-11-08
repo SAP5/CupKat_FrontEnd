@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div th:replace="fragments/headAdm :: headAdm">
+    </div>
+    <title>Cadastro Funcionários</title> 
+</head>
+<body>
+
+    <nav th:replace="fragments/navBarAdm :: navBarAdm">
+    </nav>
+    <section class="home">
+        <form method="post"
+        style="max-width: 700px; margin: 0 auto" th:action="@{/adm/saveFuncionario}" th:object="${funcionario}" class="mt-5">
+			<div class="border border-secondary rounded p-5">
+				<div class="input-group flex-nowrap mb-3">
+                    <span class="input-group-text" id="addon-wrapping">Nome</span>
+                    <input type="text" class="form-control" th:field="*{nome}">
+                  </div>
+
+                  <div class="input-group flex-nowrap mb-3">
+                    <span class="input-group-text" id="addon-wrapping">Email</span>
+                    <input type="email" class="form-control" th:field="*{email}">
+                  </div>
+
+                  <div class="input-group flex-nowrap mb-3">
+                    <span class="input-group-text" id="addon-wrapping">Senha</span>
+                    <input type="text" class="form-control" th:field="*{senha}">
+                  </div>                
+				<div class="text-center">
+					<input type="submit" value="Cadastrar" class="btn btn-primary m-3" />
+					<input type="button" value="Cancel" class="btn btn-secondary" id="buttonCancel" />
+				</div>
+			</div>
+		</form>
+    </section>
+
+    <div th:replace="fragments/scriptsAdm :: scripts">
+    </div>
+</body>
+</html>

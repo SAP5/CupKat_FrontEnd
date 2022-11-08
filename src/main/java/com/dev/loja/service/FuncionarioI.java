@@ -57,7 +57,7 @@ public class FuncionarioI {
 
     public Funcionario getById(int id){
         RestTemplate restTemplate = new RestTemplate();
-        String url = "https://cupkat-test.herokuapp.com/clientes/by_id/{id}";
+        String url = "https://cupkat-test.herokuapp.com/funcionarios/by_id/{id}";
         ResponseEntity<Funcionario> result = restTemplate.getForEntity(url, Funcionario.class, id);
         return result.getBody();
     }
