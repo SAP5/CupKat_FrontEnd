@@ -2,13 +2,18 @@ package com.dev.loja.model;
 
 import java.time.LocalDateTime;
 
+import javax.validation.constraints.NotBlank;
+
 public class Funcionario {
     private int id;
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
     private int status = 1;
+    @NotBlank(message = "Nome é requerido")
     private String nome;
+    @NotBlank(message = "Email é requerido")
     private String email;
+    @NotBlank(message = "Senha é requerido")
     private String senha;
 
     public Funcionario(String nome, String email, String senha) {

@@ -4,15 +4,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.dev.loja.model.Cliente;
 import com.dev.loja.model.Funcionario;
 import com.dev.loja.service.FuncionarioI;
 
@@ -36,13 +41,29 @@ public class GUIFuncionarioController {
 		return "administrativo/funcionario_form";
 	}
 
+//    @PostMapping("/saveFuncionario")
+//	public String saveCliente(Funcionario funcionario, RedirectAttributes redirectAttributes) {
+//		System.out.println(funcionario);
+//		servico.save(funcionario);
+//		redirectAttributes.addFlashAttribute("message", "Funcionario criado com sucesso!");
+//		return "redirect:/adm/funcionarios";
+//	}
+    
     @PostMapping("/saveFuncionario")
-	public String saveCliente(Funcionario funcionario, RedirectAttributes redirectAttributes) {
-		System.out.println(funcionario);
-		servico.save(funcionario);
-		redirectAttributes.addFlashAttribute("message", "Funcionario criado com sucesso!");
-		return "redirect:/adm/funcionarios";
+	public ModelAndView save(@Valid Funcionario funcionario, BindingResult result, RedirectAttributes redirectAttributes) {
+		ModelAndView mv = new ModelAndView("funcionarios");
+		if (result.hasErrors()) {
+			mv.addObject("funcionario", funcionario);
+			mv.setViewName("administrativo/funcionario_form");
+		} else {
+			servico.save(funcionario);
+			mv.setViewName("administrativo/funcionarios");
+			redirectAttributes.addFlashAttribute("message", "Usuário criado com sucesso!");
+			mv.setViewName("redirect:/adm/funcionarios");
+		}
+		return mv;
 	}
+    
 
     @GetMapping("/alteraFunc/{id}")
 	public String viewFuncionarioUpdate(@PathVariable("id") int id, Model model) {
