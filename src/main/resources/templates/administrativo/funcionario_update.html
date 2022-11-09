@@ -17,16 +17,23 @@
                     <span class="input-group-text" id="addon-wrapping">Nome</span>
                     <input type="text" class="form-control" th:field="*{nome}">
                   </div>
-
+                  
+				  <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger"></span>
+				  
                   <div class="input-group flex-nowrap mb-3">
                     <span class="input-group-text" id="addon-wrapping">Email</span>
                     <input type="email" class="form-control" th:field="*{email}">
                   </div>
-
+                  
+                  <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
+                  
                   <div class="input-group flex-nowrap mb-3">
                     <span class="input-group-text" id="addon-wrapping">Senha</span>
                     <input type="text" class="form-control" th:field="*{senha}">
-                  </div>                
+                  </div>
+                  
+                  <span th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}" class="text-danger"></span>
+                  
 				<div class="text-center">
 					<input type="submit" value="Cadastrar" class="btn btn-primary m-3" />
 					<input type="button" value="Cancel" class="btn btn-secondary" id="buttonCancel" />

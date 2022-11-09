@@ -129,7 +129,6 @@ public class GUIProdutoController {
    			mv.setViewName("redirect:/adm/produtos");
    		}
    		return mv;
-
 	}
     
     @GetMapping("/produtos/delete/{id}")

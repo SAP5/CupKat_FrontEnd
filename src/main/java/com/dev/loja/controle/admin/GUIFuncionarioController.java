@@ -17,8 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.dev.loja.model.Categoria;
 import com.dev.loja.model.Cliente;
+import com.dev.loja.model.Cor;
 import com.dev.loja.model.Funcionario;
+import com.dev.loja.model.Produto;
+import com.dev.loja.model.Tamanho;
 import com.dev.loja.service.FuncionarioI;
 
 @Controller
@@ -63,14 +67,31 @@ public class GUIFuncionarioController {
         model.addAttribute("funcionario", funcionario);
 		return "administrativo/funcionario_update";
 	}
-
+    
     @PostMapping("/funcionarios/update/{id}")
-	public String updateFuncionario(@PathVariable("id") int id, Funcionario funcionario, RedirectAttributes redirectAttributes){
-		servico.update(funcionario, id);
-		System.out.println("passou");
-        redirectAttributes.addFlashAttribute("message", "Funcionario alterado com sucesso!");
-		return "redirect:/adm/funcionarios";
+	public ModelAndView viewFuncionarioUpdate(@PathVariable("id") int id, @Valid Funcionario funcionario, BindingResult result, RedirectAttributes redirectAttributes){
+    	ModelAndView mv = new ModelAndView("administrativo/funcionarios");
+    	if (result.hasErrors()) {
+    		funcionario.setId(id);
+    		mv.addObject("funcionario",funcionario);
+   			mv.setViewName("administrativo/funcionario_update");
+   			
+   		} else {
+   			servico.update(funcionario, id);
+   			redirectAttributes.addFlashAttribute("message", "Funcionario alterado com sucesso!");
+   			mv.setViewName("redirect:/adm/funcionarios");
+   		}
+   		return mv;
 	}
+
+//    @PostMapping("/funcionarios/update/{id}")
+//	public String updateFuncionario(@PathVariable("id") int id, Funcionario funcionario, RedirectAttributes redirectAttributes){
+//		servico.update(funcionario, id);
+//		System.out.println("passou");
+//        redirectAttributes.addFlashAttribute("message", "Funcionario alterado com sucesso!");
+//		return "redirect:/adm/funcionarios";
+//	}
+    
 
     @GetMapping("/funcionarios/delete/{id}")
 	public String deleteFuncionario(@PathVariable("id") int id){
