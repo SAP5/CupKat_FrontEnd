@@ -1,20 +1,10 @@
 package com.dev.loja;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.dev.loja.model.Categoria;
-import com.dev.loja.model.Cliente;
-import com.dev.loja.model.Funcionario;
-import com.dev.loja.model.Modelo;
-import com.dev.loja.model.Produto;
-import com.dev.loja.service.ClienteI;
-import com.dev.loja.service.FuncionarioI;
-import com.dev.loja.service.ProdutoI;
+import com.dev.loja.service.CategoriaI;
 
 
 @SpringBootApplication
@@ -32,33 +22,38 @@ public class LojaApplication {
 		// cli.update(cl, 2);
 
 
-		// Produto produto = new Produto();
-		
-		// List<String> cores = new ArrayList<String>();
-		// cores.add("vermelho");
+//		 Produto produto = new Produto();
+//		 List<Integer> numC = new ArrayList<Integer>();
+//		 List<Integer> numT = new ArrayList<Integer>();
+//		 List<Integer> numCa = new ArrayList<Integer>();
+//		 numC.add(1);
+//		 numC.add(2);
+//		 numT.add(1);
+//		 numT.add(2);
+//		 numCa.add(1);
+//		 numCa.add(2);
+//		 
+//		 produto.setNome("Novo produto");
+//		 produto.setDescricao("teste descrição");
+//		 produto.setLucro(10.0);
+//		 produto.setEstoque(10);
+//		 produto.setCores(numC);
+//		 produto.setTamanhos(numT);
+//		 produto.setCategorias(numCa);
+//		 produto.setModelo(3);
+//		 
+//		 ProdutoI p2 = new ProdutoI();
+//		 p2.save(produto);
 
-		// List<String> tamanhos = new ArrayList<String>();
-		// tamanhos.add("médio");
-
-	
-		// List<Integer> cat = new ArrayList<Integer>();
-		// cat.add(1);
-
-		// produto.setNome("zzzzzzzzzzzzzzzzzzzzzzzzzzz");
-		// produto.setDescricao("teste descrição");
-		// produto.setLucro(10.0);
-		// produto.setEstoque(10);
-		// produto.setCores(cores);
-		// produto.setTamanhos(tamanhos);
-		// produto.setCategorias(cat);
-		// produto.setModelo(1);
-		
-		// ProdutoI p2 = new ProdutoI();
-		// p2.obtemProdutos();
-		// p2.getById(3);
-		// p2.update(produto, 3);
-		// p2.save(produto);
-		// p2.delete(6);
+//		CorI cor = new CorI();
+//		cor.obtemCores();
+//		cor.getById(1);
+//		TamanhoI tamanho = new TamanhoI();
+//		tamanho.getById(1);
+//		tamanho.obtemTamanhos();
+//		CategoriaI categoria = new CategoriaI();
+//		categoria.getById(1);
+//		categoria.obtemCategoria();
 
 
 		// Funcionario func = new Funcionario("Gabriel", "ghaamorim338@gmail.com", "@Teste123");
@@ -74,7 +69,11 @@ public class LojaApplication {
 		// service.delete(2);
 
 		// service.getById(1);
+		
+		
 
+		
+		
 	}
 
 }

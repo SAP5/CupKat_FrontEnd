@@ -40,14 +40,6 @@ public class GUIFuncionarioController {
         model.addAttribute("funcionario",funcionario);
 		return "administrativo/funcionario_form";
 	}
-
-//    @PostMapping("/saveFuncionario")
-//	public String saveCliente(Funcionario funcionario, RedirectAttributes redirectAttributes) {
-//		System.out.println(funcionario);
-//		servico.save(funcionario);
-//		redirectAttributes.addFlashAttribute("message", "Funcionario criado com sucesso!");
-//		return "redirect:/adm/funcionarios";
-//	}
     
     @PostMapping("/saveFuncionario")
 	public ModelAndView save(@Valid Funcionario funcionario, BindingResult result, RedirectAttributes redirectAttributes) {
@@ -64,7 +56,6 @@ public class GUIFuncionarioController {
 		return mv;
 	}
     
-
     @GetMapping("/alteraFunc/{id}")
 	public String viewFuncionarioUpdate(@PathVariable("id") int id, Model model) {
         Funcionario funcionario = new Funcionario();
@@ -86,5 +77,7 @@ public class GUIFuncionarioController {
 		servico.delete(id);
 		return "redirect:/adm/funcionarios";
 	}
+    
+    
 
 }

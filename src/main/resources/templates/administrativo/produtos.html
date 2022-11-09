@@ -39,6 +39,8 @@
 							<td>
 								<div class="text-center">
 									<div class="btn-group">
+										<a class="btn btn-sm btn-primary"
+										th:href="@{/adm/alteraProd/{id}(id=${produto.id})}">Ver</a>
 										<a class="delete btn btn-sm btn-danger"
 											th:href="@{/adm/produtos/delete/{id}(id=${produto.id})}">Excluir</a>
 									</div>

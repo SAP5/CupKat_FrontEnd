@@ -17,7 +17,7 @@ import com.dev.loja.model.ProdutoDTO;
 public class ProdutoI {
 
     public List<ProdutoDTO> obtemProdutos() {
-        String url = "https://cupkat-prj.herokuapp.com/produtos/";
+        String url = "https://cupkat-test.herokuapp.com/produtos/";
         HttpHeaders headers = new HttpHeaders();
         headers.set("accept", "application/json");
         headers.set("Authorization", "authorizationHeader");
@@ -47,7 +47,7 @@ public class ProdutoI {
     public void delete(int id){
         RestTemplate restTemplate = new RestTemplate();
 
-        String url = "https://cupkat-prj.herokuapp.com/produtos/delete/{id}";
+        String url = "https://cupkat-test.herokuapp.com/produtos/delete/{id}";
 
         restTemplate.delete(url, id, String.class);
     }
@@ -55,16 +55,16 @@ public class ProdutoI {
     public void update(Produto produto, int id){
         RestTemplate restTemplate = new RestTemplate();
         produto.setId(id);
-        String url = "https://cupkat-prj.herokuapp.com/produtos/update/{id}";
+        String url = "https://cupkat-test.herokuapp.com/produtos/update/{id}";
 
         restTemplate.put(url, produto, produto.getId());
 	}
 
-    public ProdutoDTO getById(int id){
+    public Produto getById(int id){
         RestTemplate restTemplate = new RestTemplate();
-        String url = "https://cupkat-prj.herokuapp.com/produtos/by_id/{id}";
+        String url = "https://cupkat-test.herokuapp.com/produtos/by_id/{id}";
         
-        ResponseEntity<ProdutoDTO> result = restTemplate.getForEntity(url, ProdutoDTO.class, id);
+        ResponseEntity<Produto> result = restTemplate.getForEntity(url, Produto.class, id);
         System.out.println(result.getBody());
         return result.getBody();
     }
