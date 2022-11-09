@@ -37,7 +37,7 @@ public class ProdutoI {
     public void save(Produto produto){
         RestTemplate restTemplate = new RestTemplate();
 
-        String url = "https://cupkat-prj.herokuapp.com/produtos";
+        String url = "https://cupkat-test.herokuapp.com/produtos";
 
         ResponseEntity<String> result = restTemplate.postForEntity(url, produto, String.class);
 

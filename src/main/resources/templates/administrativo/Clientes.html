@@ -29,6 +29,7 @@
                             <tr class="">
                                 <th scope="col">ID</th>
                                 <th scope="col">Nome</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Status</th>
                                 <th scope="col"></th>
                             </tr>
@@ -38,6 +39,7 @@
                         <tr th:each="cliente : ${listClientes}">
                             <td>[[${cliente.id}]]</td>
                             <td>[[${cliente.nome}]]</td>
+                            <td>[[${cliente.email}]]</td>
                             <td>
                                 <a th:if="${cliente.status == 1}">Ativo</a>
                                 <a th:if="${cliente.status == 0}">Inativo</a>

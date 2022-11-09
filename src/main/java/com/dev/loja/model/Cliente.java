@@ -13,7 +13,7 @@ public class Cliente{
     @NotBlank(message = "Nome é requerido")
     private String nome;
     
-    @CPF(message = "CPF inválido.")
+//    @CPF(message = "CPF inválido.")
     private String cpf;
     
     @NotBlank(message = "Email é requerido")
