@@ -24,7 +24,7 @@
 }
 
 body{
-    min-height: 100vh;
+    
     background-color: var(--body-color);
     transition: var(--tran-05);
 }
@@ -294,7 +294,7 @@ body.dark .switch::before{
     top: 0;
     top: 0;
     left: 250px;
-    height: 100vh;
+    height: 200vh;
     width: calc(100% - 250px);
     background-color: var(--body-color);
     transition: var(--tran-05);
@@ -305,10 +305,16 @@ body.dark .switch::before{
     color: var(--text-color);
     padding: 12px 60px;
 }
+.home .titulo{
+	font-size: 17px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 12px 60px;
+}
 
 .sidebar.close ~ .home{
     left: 78px;
-    height: 100vh;
+    height: 200vh;
     width: calc(100% - 78px);
 }
 body.dark .home .text{
