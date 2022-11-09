@@ -1,11 +1,25 @@
 package com.dev.loja.model;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.br.CPF;
+
 public class Cliente{
     private int id;
+    
     private int status = 1;
+    
+    @NotBlank(message = "Nome é requerido")
     private String nome;
+    
+    @CPF(message = "CPF inválido.")
     private String cpf;
+    
+    @NotBlank(message = "Email é requerido")
     private String email;
+    
+    @NotBlank(message = "Senha é requerida")
     private String senha;
 
     public Cliente(String nome, String cpf, String email, String senha){
