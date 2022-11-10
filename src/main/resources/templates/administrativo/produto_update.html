@@ -45,43 +45,29 @@
                 
                 <span th:if="${#fields.hasErrors('estoque')}" th:errors="*{estoque}" class="text-danger"></span>
 
-				<div class="form-group col-md-8">
-					<label for="categoria" class="col-form-label">Cores</label>
-					<div class="row-md-8">
-						<th:block th:each="cor: ${listCor}">
-							<input th:field="*{cores}"
-							th:value="${cor.id}" class="form-check-input m-2" type="checkbox">
-							- <small>[[${cor.nome}]]</small>
-						</th:block>
-					</div>
-				</div>
 				
+				<label for="categoria" class="col-form-label">Cores</label>	
+					<th:block th:each="cor: ${listCor}">
+						<input th:field="*{cores}"th:value="${cor.id}" class="form-check-input m-2" type="checkbox">
+						- <small>[[${cor.nome}]]</small>
+					</th:block>
+					
 				<span th:if="${#fields.hasErrors('cores')}" th:errors="*{cores}" class="text-danger"></span>
 
-				<div class="form-group col-md-8">
-					<label for="categoria" class="col-form-label">Tamanhos</label>
-					<div class="row-md-8">
-						<th:block th:each="tamanho: ${listTamanho}">
-							<input th:field="*{tamanhos}"
-							th:value="${tamanho.id}" class="form-check-input m-2" type="checkbox">
-							- <small>[[${tamanho.nome}]]</small>
-						</th:block>
-					</div>
-				</div>
+				<label for="categoria" class="col-form-label">Tamanhos</label>
+					<th:block th:each="tamanho: ${listTamanho}">
+						<input th:field="*{tamanhos}" th:value="${tamanho.id}" class="form-check-input m-2" type="checkbox">
+						- <small>[[${tamanho.nome}]]</small>
+					</th:block>
 				
 				<span th:if="${#fields.hasErrors('tamanhos')}" th:errors="*{tamanhos}" class="text-danger"></span>
 				
-				<div class="form-group col-md-8">
-					<label for="categoria" class="col-form-label">Categorias</label>
-					<div class="row-md-8">
-						<th:block th:each="categoria: ${listCategoria}">
-							<input th:field="*{categorias}"
-							th:value="${categoria.id}" class="form-check-input m-2" type="checkbox">
-							- <small>[[${categoria.titulo}]]</small>
-						</th:block>
-					</div>
-				</div>
-				
+				<label for="categoria" class="col-form-label">Categorias</label>
+				<th:block th:each="categoria: ${listCategoria}">
+					<input th:field="*{categorias}" th:value="${categoria.id}" class="form-check-input m-2" type="checkbox">
+					- <small>[[${categoria.titulo}]]</small>
+				</th:block>
+	
 				<span th:if="${#fields.hasErrors('categorias')}" th:errors="*{categorias}" class="text-danger"></span>
                 
 				<div class="input-group flex-nowrap mb-3">
