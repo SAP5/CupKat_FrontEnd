@@ -29,7 +29,7 @@
                   
                   <div class="input-group flex-nowrap mb-3">
                     <span class="input-group-text" id="addon-wrapping">Senha</span>
-                    <input type="text" class="form-control" th:field="*{senha}">
+                    <input type="password" class="form-control" th:field="*{senha}">
                   </div>
                   
                   <span th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}" class="text-danger"></span>
