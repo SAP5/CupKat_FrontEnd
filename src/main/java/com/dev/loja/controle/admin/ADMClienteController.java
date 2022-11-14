@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.dev.loja.model.Cliente;
 import com.dev.loja.service.ClienteI;
 
@@ -27,8 +29,12 @@ public class ADMClienteController {
 	}
 
 	@GetMapping("/clientes/delete/{id}")
-	public String deleteCliente(@PathVariable("id") int id){
+	public String deleteCliente(@PathVariable("id") int id,
+			Model model,
+			RedirectAttributes redirectAttributes){
+		
 		servico.delete(id);
+		redirectAttributes.addFlashAttribute("message", "O cliente de ID " + id + " foi excluído com sucesso!" );
 		return "redirect:/adm/clientes";
 	}
 

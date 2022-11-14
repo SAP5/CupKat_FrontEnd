@@ -94,8 +94,12 @@ public class GUIFuncionarioController {
     
 
     @GetMapping("/funcionarios/delete/{id}")
-	public String deleteFuncionario(@PathVariable("id") int id){
-		servico.delete(id);
+	public String deleteFuncionario(@PathVariable(name = "id") int id,
+			Model model,
+			RedirectAttributes redirectAttributes){
+    	
+    	servico.delete(id);
+    	redirectAttributes.addFlashAttribute("message", "O funcionário com ID " + id + " foi excluído com sucesso!" );
 		return "redirect:/adm/funcionarios";
 	}
     

@@ -2,70 +2,101 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <div th:replace="fragments/headAdm :: headAdm">
-    </div>
-    <title>Consulta Funcionários</title> 
+<div th:replace="fragments/headAdm :: headAdm"></div>
+<title>Consulta Funcionários</title>
 </head>
 <body>
 
-    <nav th:replace="fragments/navBarAdm :: navBarAdm">
-    </nav>
-	
-    <section class="home">
-        
-        <div class="container-fluid">
-            <div class="container-fluid">
-                <div>
-                    <h2 class="text">Gerenciamento Funcionarios</h2>
-                    <a class="titulo" th:href="@{/adm/funcionario}">Novo Funcionario</a>
-                </div>
-                <div th:if="${message != null}" class="alert alert-success text-center">
-                    [[${message}]]
-                </div>
-                <table class="content-table">
-        
-                    <thead>
-                            <tr>
-                                <th>FUNCIONARIOS</th>
-                            </tr>
-                            <tr class="">
-                                <th scope="col">ID</th>
-                                <th scope="col">Nome</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Status</th>
-                                <th scope="col"></th>
-                            </tr>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="funcionario : ${listFuncionarios}">
-                            <td>[[${funcionario.id}]]</td>
-                            <td>[[${funcionario.nome}]]</td>
-                            <td>[[${funcionario.email}]]</td>
-                            <td>
-                                <a th:if="${funcionario.status == 1}">Ativo</a>
-                                <a th:if="${funcionario.status == 0}">Inativo</a>
-                            </td>
-                        <td>
-                            <div class="text-center">
-                                <div class="btn-group">
-                                    <a class="btn btn-sm btn-primary"
-										th:href="@{/adm/alteraFunc/{id}(id=${funcionario.id})}">Editar</a>
-                                        <a class="btn btn-sm btn-danger"
-										th:href="@{/adm/funcionarios/delete/{id}(id=${funcionario.id})}">Excluir</a>
-                                </div>
-                            </div>
-                        </td>
-                        </tr>
-                    </tbody>
-              </table>
-            </div>
-        </div>
-        <div>
-        </div>
-    </section>
+	<nav th:replace="fragments/navBarAdm :: navBarAdm"></nav>
 
-    <div th:replace="fragments/scriptsAdm :: scripts">
-    </div>
+	<section class="home">
+
+		<div class="container-fluid">
+			<div class="container-fluid">
+				<div>
+					<h2 class="text">Gerenciamento Funcionarios</h2>
+					<a class="titulo" th:href="@{/adm/funcionario}">Novo
+						Funcionario</a>
+				</div>
+				<div th:if="${message != null}"
+					class="alert alert-success text-center">[[${message}]]</div>
+				<table class="content-table">
+
+					<thead>
+						<tr>
+							<th>FUNCIONARIOS</th>
+						</tr>
+						<tr class="">
+							<th scope="col">ID</th>
+							<th scope="col">Nome</th>
+							<th scope="col">Email</th>
+							<th scope="col">Status</th>
+							<th scope="col"></th>
+						</tr>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="funcionario : ${listFuncionarios}">
+							<td>[[${funcionario.id}]]</td>
+							<td>[[${funcionario.nome}]]</td>
+							<td>[[${funcionario.email}]]</td>
+							<td><a th:if="${funcionario.status == 1}">Ativo</a> <a
+								th:if="${funcionario.status == 0}">Inativo</a></td>
+							<td>
+								<div class="text-center">
+									<div class="btn-group">
+										<a class="btn btn-sm btn-primary"
+											th:href="@{/adm/alteraFunc/{id}(id=${funcionario.id})}">Editar</a>
+										<a class="btn btn-sm btn-danger link-delete"
+											th:href="@{'/adm/funcionarios/delete/' + ${funcionario.id}}"
+											th:userId="${funcionario.id}"
+											title="Delete this user">Excluir</a>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div></div>
+		
+		
+		<div class="modal fade text-center" id="confirmModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="modalTitle">Confirmação de exclusão</h4>
+						<button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<span id="confirmText"></span>
+					</div>
+					<div class="modal-footer">
+						<a class="btn btn-success" href="" id="yesButton">Sim</a>
+						<button type="button" class="btn btn-danger"
+							data-bs-dismiss="modal">Não</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	
+	<div th:replace="fragments/scriptsAdm :: scripts"></div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".link-delete").on("click", function(e){
+				e.preventDefault();
+				link = $(this);
+				//alert($(this).attr("href"));
+				userId = link.attr("userId");
+				$("#yesButton").attr("href", link.attr("href"));
+				$("#confirmText").text("Deseja excluir esse funcionário de ID " + userId + "?");
+				$("#confirmModal").modal('show');
+			});
+		});
+	</script>
 </body>
 </html>

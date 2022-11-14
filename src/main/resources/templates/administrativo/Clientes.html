@@ -47,7 +47,9 @@
                         <td>
                             <div class="text-center">
                                 <div class="btn-group">
-                                    <a class="delete btn btn-sm btn-danger" th:href="@{/adm/clientes/delete/{id}(id=${cliente.id})}">Excluir</a>
+                                    <a class="delete btn btn-sm btn-danger link-delete"
+                                     th:href="@{/adm/clientes/delete/{id}(id=${cliente.id})}"
+                                     th:cliId="${cliente.id}">Excluir</a>
                                 </div>
                             </div>
                         </td>
@@ -58,10 +60,41 @@
         </div>
         <div>
         </div>
+        
+        <div class="modal fade text-center" id="confirmModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="modalTitle">Confirmação de exclusão</h4>
+						<button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<span id="confirmText"></span>
+					</div>
+					<div class="modal-footer">
+						<a class="btn btn-success" href="" id="yesButton">Sim</a>
+						<button type="button" class="btn btn-danger"
+							data-bs-dismiss="modal">Não</button>
+					</div>
+				</div>
+			</div>
+		</div>
     </section>
 
 
-	<div th:replace="fragments/scriptsAdm :: scripts">
-    </div>
+	<div th:replace="fragments/scriptsAdm :: scripts"></div>
+    <script type="text/javascript">
+		$(document).ready(function(){
+			$(".link-delete").on("click", function(e){
+				e.preventDefault();
+				link = $(this);
+				//alert($(this).attr("href"));
+				cliId = link.attr("cliId");
+				$("#yesButton").attr("href", link.attr("href"));
+				$("#confirmText").text("Deseja excluir esse cliente de ID " + cliId + "?");
+				$("#confirmModal").modal('show');
+			});
+		});
+	</script> 
 </body>
 </html>

@@ -132,8 +132,12 @@ public class GUIProdutoController {
 	}
     
     @GetMapping("/produtos/delete/{id}")
-	public String deleteCliente(@PathVariable("id") int id){
+	public String deleteCliente(@PathVariable("id") int id,
+			Model model,
+			RedirectAttributes redirectAttributes){
+    	
 		servico.delete(id);
+		redirectAttributes.addFlashAttribute("message", "O produto de ID " + id + " foi excluído com sucesso!" );
 		return "redirect:/adm/produtos";
 	}
 

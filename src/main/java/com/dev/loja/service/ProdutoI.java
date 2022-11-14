@@ -17,7 +17,7 @@ import com.dev.loja.model.ProdutoDTO;
 public class ProdutoI {
 
     public List<ProdutoDTO> obtemProdutos() {
-        String url = "https://cupkat-test.herokuapp.com/produtos/";
+        String url = "https://cupkat-dev.herokuapp.com/produtos/";
         HttpHeaders headers = new HttpHeaders();
         headers.set("accept", "application/json");
         headers.set("Authorization", "authorizationHeader");
