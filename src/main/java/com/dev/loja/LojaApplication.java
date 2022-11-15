@@ -4,6 +4,8 @@ package com.dev.loja;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.dev.loja.model.Categoria;
+import com.dev.loja.service.CategoriaI;
 import com.dev.loja.service.ClienteI;
 
 
@@ -17,8 +19,8 @@ public class LojaApplication {
 
 		//altera cliente
 		// Cliente cl = new Cliente("felipe", "12332178909","henrique@email.com.br","senhaSenha90123@");
-		 ClienteI cli = new ClienteI();
-		 cli.getByEmail("novoclienteasdasdasf1@gmail.com");
+//		 ClienteI cli = new ClienteI();
+//		 cli.getByEmail("novoclienteasdasdasf1@gmail.com");
 //		 cli.isEmailUnique("novocliente1@gmail.com");
 		// cli.update(cl, 2);
 
@@ -71,8 +73,20 @@ public class LojaApplication {
 
 		// service.getById(1);
 		
-		
-
+		 
+		 
+//		CategoriaI cat = new CategoriaI();
+//		Categoria cate = new Categoria();
+		 
+//		cate.setTitulo("Boinas");
+//		cate.setDescricao("bonés novos");
+		 
+//		cat.save(cate);
+//		cat.update(cate, 6);
+//		cat.delete(6);
+		 
+//		cat.obtemCategoria();
+//		cat.getById(1);
 		
 		
 	}

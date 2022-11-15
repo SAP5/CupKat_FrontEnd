@@ -2,7 +2,10 @@ package com.dev.loja.model;
 
 import java.time.LocalDateTime;
 
+import javax.validation.constraints.NotBlank;
+
 public class Categoria {
+
 	private int id;
 
 	private LocalDateTime created_at;
@@ -11,14 +14,12 @@ public class Categoria {
 
 	private int status = 1;
 	
+	@NotBlank(message = "Título é requerido")
 	private String titulo;
-
+	@NotBlank(message = "Descrição é requerida")
 	private String descricao;
-	
-
-	public Categoria() {
-
-	}
+		
+	public Categoria() {}
 
 	public int getId() {
 		return id;
@@ -69,5 +70,5 @@ public class Categoria {
 	}
 	
 	
-
+	
 }

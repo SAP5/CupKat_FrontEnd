@@ -11,10 +11,9 @@
 		<div class="container-fluid">
 			<div class="container-fluid">
 				<div>
-					<h2 class="text">Gerenciamento Produtos</h2>
-					<a class="btn btn-danger" th:href="@{/adm/produtoCad}">Novo Produto</a>
-					<a class="btn btn-primary" th:href="@{/adm/categorias}">Categorias</a>
-					<a class="btn btn-primary" th:href="@{/adm/categorias}">Modelos</a>
+					<h2 class="text">Gerenciamento Categorias</h2>
+					<a class="btn btn-danger" th:href="@{/adm/categoriaCad}">Adicionar</a>
+					<a class="btn btn-primary" th:href="@{/adm/produtos}">Voltar</a>
 				</div>
 				<div th:if="${message != null}"
 					class="alert alert-success text-center">[[${message}]]</div>
@@ -22,30 +21,28 @@
 
 					<thead>
 						<tr>
-							<th>PRODUTOS</th>
+							<th>CATEGORIAS</th>
 						</tr>
 						<tr class="">
 							<th scope="col">ID</th>
-							<th scope="col">Nome</th>
+							<th scope="col">Título</th>
 							<th scope="col">Descricao</th>
-							<th scope="col">Estoque</th>
 							<th scope="col"></th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="produto : ${listProdutos}">
-							<td>[[${produto.id}]]</td>
-							<td>[[${produto.nome}]]</td>
-							<td>[[${produto.Descricao}]]</td>
-							<td>[[${produto.Estoque}]]</td>
+						<tr th:each="categoria : ${listCategorias}">
+							<td>[[${categoria.id}]]</td>
+							<td>[[${categoria.titulo}]]</td>
+							<td>[[${categoria.descricao}]]</td>
 							<td>
 								<div class="text-center">
 									<div class="btn-group">
 										<a class="btn btn-sm btn-primary"
-										th:href="@{/adm/alteraProd/{id}(id=${produto.id})}">Ver</a>
+										th:href="@{/adm/alteraCat/{id}(id=${categoria.id})}">Ver</a>
 										<a class="delete btn btn-sm btn-danger link-delete"
-											th:href="@{/adm/produtos/delete/{id}(id=${produto.id})}"
-											th:prodId="${produto.id}">Excluir</a>
+											th:href="@{/adm/categorias/delete/{id}(id=${categoria.id})}"
+											th:catId="${categoria.id}">Excluir</a>
 									</div>
 								</div>
 							</td>
@@ -83,9 +80,9 @@
 				e.preventDefault();
 				link = $(this);
 				//alert($(this).attr("href"));
-				prodId = link.attr("prodId");
+				catId = link.attr("catId");
 				$("#yesButton").attr("href", link.attr("href"));
-				$("#confirmText").text("Deseja excluir esse produto de ID " + prodId + "?");
+				$("#confirmText").text("Deseja excluir essa categoria de ID " + catId + "?");
 				$("#confirmModal").modal('show');
 			});
 		});
