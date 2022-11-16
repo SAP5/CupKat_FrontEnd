@@ -1,22 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-	<div th:replace="fragments/headAdm :: headAdm">
-	</div>
-    <title>Cadastro Categorias</title> 
-
+    <div th:replace="fragments/headAdm :: headAdm">
+    </div>
+    <title>Atualizar Categorias</title> 
 </head>
 <body>
-<nav th:replace="fragments/navBarAdm :: navBarAdm">
-</nav>
+    <nav th:replace="fragments/navBarAdm :: navBarAdm">
+    </nav>
 
-<section class="home">
-	<div>
-		<h2 class="text">Gerenciamento Categorias</h2>
-	</div>
-	<form method="post"
-        style="max-width: 700px; margin: 0 auto" th:action="@{/adm/saveCategoria}" th:object="${categoria}" class="mt-5">
-        <input type="hidden" th:field="*{id}">
+    <section class="home">
+        <form method="post"
+        style="max-width: 700px; margin: 0 auto" th:action="@{/adm/categorias/update/{id} (id=${categoria.id}) }" th:object="${categoria}" class="mt-5">
+			<input type="hidden" th:field="*{id}">
 			<div class="border border-secondary rounded p-5">
 				<div class="input-group flex-nowrap mb-3">
                     <span class="input-group-text" id="addon-wrapping">Título</span>
@@ -38,10 +34,9 @@
 				</div>
 			</div>
 		</form>
-</section>
+    </section>
 
-      
-	<div th:replace="fragments/scriptsAdm :: scripts">
-	</div>
+    <div th:replace="fragments/scriptsAdm :: scripts">
+    </div>
 </body>
 </html>

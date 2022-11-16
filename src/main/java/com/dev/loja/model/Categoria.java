@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 
 public class Categoria {
 
-	private int id;
+	private Integer id;
 
 	private LocalDateTime created_at;
 
@@ -21,11 +21,11 @@ public class Categoria {
 		
 	public Categoria() {}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

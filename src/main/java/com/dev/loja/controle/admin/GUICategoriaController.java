@@ -55,12 +55,29 @@ public class GUICategoriaController {
 		return mv;
 	}
     
+    
     @GetMapping("/alteraCat/{id}")
-	public String viewFuncionarioUpdate(@PathVariable("id") int id, Model model) {
+	public String viewFuncionarioUpdate(@PathVariable("id") Integer id, Model model) {
     	Categoria categoria = new Categoria();
 		categoria = servico.getById(id);
         model.addAttribute("categoria", categoria);
-		return "administrativo/categoria_form";
+		return "administrativo/categoria_update";
+	}
+    
+    @PostMapping("/categorias/update/{id}")
+	public ModelAndView viewCategoriaUpdate(@PathVariable("id") int id, @Valid Categoria categoria, BindingResult result, RedirectAttributes redirectAttributes){
+    	ModelAndView mv = new ModelAndView("administrativo/categorias");
+    	if (result.hasErrors()) {
+    		categoria.setId(id);
+    		mv.addObject("categoria",categoria);
+   			mv.setViewName("administrativo/categoria_update");
+   			
+   		} else {
+   			servico.update(categoria, id);
+   			redirectAttributes.addFlashAttribute("message", "Categoria alterada com sucesso!");
+   			mv.setViewName("redirect:/adm/categorias");
+   		}
+   		return mv;
 	}
     
     @GetMapping("/categorias/delete/{id}")
