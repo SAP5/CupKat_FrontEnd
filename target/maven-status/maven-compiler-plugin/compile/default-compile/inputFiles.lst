@@ -1,7 +1,26 @@
-C:\Users\ghaam\git\loja1\loja\src\main\java\com\dev\loja\service\FuncionarioService.java
-C:\Users\ghaam\git\loja1\loja\src\main\java\com\dev\loja\LojaApplication.java
-C:\Users\ghaam\git\loja1\loja\src\main\java\com\dev\loja\controle\PrincipalControle.java
-C:\Users\ghaam\git\loja1\loja\src\main\java\com\dev\loja\repository\FuncionarioRepository.java
-C:\Users\ghaam\git\loja1\loja\src\main\java\com\dev\loja\model\Funcionario.java
-C:\Users\ghaam\git\loja1\loja\src\main\java\com\dev\loja\service\impl\FuncionarioServiceImpl.java
-C:\Users\ghaam\git\loja1\loja\src\main\java\com\dev\loja\controle\FuncionarioController.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\controle\admin\ADMClienteController.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\model\Funcionario.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\model\Tamanho.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\service\ClienteI.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\service\ProdutoI.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\model\ProdutoDTO.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\model\Produto.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\controle\admin\GUIProdutoController.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\controle\cliente\ClienteRestController.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\service\FuncionarioI.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\service\CorI.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\controle\admin\GUIModeloController.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\controle\PrincipalControle.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\service\CategoriaI.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\controle\admin\GUICategoriaController.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\LojaApplication.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\model\Cor.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\export\AbstractExporter.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\service\ModeloI.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\service\TamanhoI.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\model\Modelo.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\controle\admin\GUIFuncionarioController.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\model\Cliente.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\export\ClientePdfExporter.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\model\Categoria.java
+C:\Users\ghaam\git\cupkat - frontend\src\main\java\com\dev\loja\controle\cliente\GUIClienteController.java
