@@ -1,6 +1,9 @@
 package com.dev.loja.controle.admin;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.dev.loja.export.ClientePdfExporter;
 import com.dev.loja.model.Cliente;
 import com.dev.loja.service.ClienteI;
 
@@ -52,5 +56,15 @@ public class ADMClienteController {
 		System.out.println("passou");
 		return "redirect:/adm/clientes";
 	}
+	
+	@GetMapping("/clientes/export/pdf")
+	public void exportToPDF(HttpServletResponse response) throws IOException {
+		List<Cliente> listClientes = servico.obtemClientes();
+		
+		ClientePdfExporter exporter = new ClientePdfExporter();
+		exporter.export(listClientes, response);
+	}
+	
+	
 	//FIM CLIENTE
 }
