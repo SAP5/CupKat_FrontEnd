@@ -57,10 +57,9 @@ public class ADMClienteController {
 		return "redirect:/adm/clientes";
 	}
 	
-	@GetMapping("/clientes/export/pdf")
+	@GetMapping("/clientes/pdf")
 	public void exportToPDF(HttpServletResponse response) throws IOException {
 		List<Cliente> listClientes = servico.obtemClientes();
-		
 		ClientePdfExporter exporter = new ClientePdfExporter();
 		exporter.export(listClientes, response);
 	}
