@@ -11,10 +11,9 @@
 		<div class="container-fluid">
 			<div class="container-fluid">
 				<div>
-					<h2 class="text">Gerenciamento Produtos</h2>
-					<a class="btn btn-danger" th:href="@{/adm/produtoCad}">Novo Produto</a>
-					<a class="btn btn-primary" th:href="@{/adm/categorias}">Categorias</a>
-					<a class="btn btn-primary" th:href="@{/adm/modelos}">Modelos</a>
+					<h2 class="text">Gerenciamento Modelos</h2>
+					<a class="btn btn-danger" th:href="@{/adm/modeloCad}">Adicionar</a>
+					<a class="btn btn-primary" th:href="@{/adm/produtos}">Voltar</a>
 				</div>
 				<div th:if="${message != null}"
 					class="alert alert-success text-center">[[${message}]]</div>
@@ -22,30 +21,30 @@
 
 					<thead>
 						<tr>
-							<th>PRODUTOS</th>
+							<th>MODELOS</th>
 						</tr>
 						<tr class="">
 							<th scope="col">ID</th>
-							<th scope="col">Nome</th>
+							<th scope="col">Título</th>
+							<th scope="col">Preço Custo</th>
 							<th scope="col">Descricao</th>
-							<th scope="col">Estoque</th>
 							<th scope="col"></th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="produto : ${listProdutos}">
-							<td>[[${produto.id}]]</td>
-							<td>[[${produto.nome}]]</td>
-							<td>[[${produto.Descricao}]]</td>
-							<td>[[${produto.Estoque}]]</td>
+						<tr th:each="modelo : ${listModelos}">
+							<td>[[${modelo.id}]]</td>
+							<td>[[${modelo.titulo}]]</td>
+							<td>[[${modelo.precoCusto}]]</td>
+							<td>[[${modelo.descricao}]]</td>
 							<td>
 								<div class="text-center">
 									<div class="btn-group">
 										<a class="btn btn-sm btn-primary"
-										th:href="@{/adm/alteraProd/{id}(id=${produto.id})}">Ver</a>
+										th:href="@{/adm/alteraMod/{id}(id=${modelo.id})}">Ver</a>
 										<a class="delete btn btn-sm btn-danger link-delete"
-											th:href="@{/adm/produtos/delete/{id}(id=${produto.id})}"
-											th:prodId="${produto.id}">Excluir</a>
+											th:href="@{/adm/modelos/delete/{id}(id=${modelo.id})}"
+											th:modId="${modelo.id}">Excluir</a>
 									</div>
 								</div>
 							</td>
@@ -83,9 +82,9 @@
 				e.preventDefault();
 				link = $(this);
 				//alert($(this).attr("href"));
-				prodId = link.attr("prodId");
+				modId = link.attr("modId");
 				$("#yesButton").attr("href", link.attr("href"));
-				$("#confirmText").text("Deseja excluir esse produto de ID " + prodId + "?");
+				$("#confirmText").text("Deseja excluir essa categoria de ID " + modId + "?");
 				$("#confirmModal").modal('show');
 			});
 		});

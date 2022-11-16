@@ -47,7 +47,7 @@ public class CategoriaI {
 	        categoria.setId(id);
 	        String url = "https://cupkat-test.herokuapp.com/categorias/update/{id}";
 	        restTemplate.put(url, categoria, categoria.getId());
-		}
+	}
 	 
 	 public void delete(int id){
 	        RestTemplate restTemplate = new RestTemplate();

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<div th:replace="fragments/headAdm :: headAdm">
+	</div>
+    <title>Cadastro Modelos</title> 
+
+</head>
+<body>
+<nav th:replace="fragments/navBarAdm :: navBarAdm">
+</nav>
+
+<section class="home">
+	<div>
+		<h2 class="text">Gerenciamento Modelos</h2>
+	</div>
+	<form method="post"
+        style="max-width: 700px; margin: 0 auto" th:action="@{/adm/saveModelo}" th:object="${modelo}" class="mt-5">
+			<div class="border border-secondary rounded p-5">
+				<div class="input-group flex-nowrap mb-3">
+                    <span class="input-group-text" id="addon-wrapping">Título</span>
+                    <input type="text" class="form-control" th:field="*{titulo}">
+                  </div>
+                  
+                 <span th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}" class="text-danger"></span>
+				
+				<div class="input-group mb-3">
+                    <span class="input-group-text">Custo</span>
+                    <span class="input-group-text">R$ 0.00</span>
+                    <input type="text" class="form-control" th:field="*{precoCusto}">
+                </div>
+                
+                <span th:if="${#fields.hasErrors('precoCusto')}" th:errors="*{precoCusto}" class="text-danger"></span>
+				
+                <div class="input-group">
+                    <span class="input-group-text m-">Descrição</span>
+                    <textarea class="form-control" th:field="*{descricao}" ></textarea>
+                  </div>
+                  
+                  <span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}" class="text-danger"></span>
+                
+				<div class="text-center">
+					<input type="submit" value="Cadastrar" class="btn btn-primary m-3" />
+					<input type="button" value="Cancel" class="btn btn-secondary" id="buttonCancel" />
+				</div>
+			</div>
+		</form>
+</section>
+
+      
+	<div th:replace="fragments/scriptsAdm :: scripts">
+	</div>
+</body>
+</html>

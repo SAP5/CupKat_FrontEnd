@@ -1,12 +1,13 @@
 package com.dev.loja;
 
 
+import java.math.BigDecimal;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.dev.loja.model.Categoria;
-import com.dev.loja.service.CategoriaI;
-import com.dev.loja.service.ClienteI;
+import com.dev.loja.model.Modelo;
+import com.dev.loja.service.ModeloI;
 
 
 @SpringBootApplication
@@ -89,6 +90,18 @@ public class LojaApplication {
 //		cat.getById(1);
 		
 		
+//		ModeloI mod = new ModeloI();
+//		Modelo model = new Modelo();
+//		BigDecimal x = new BigDecimal("30");
+//		model.setTitulo("Adesivos");
+//		model.setPrecoCusto(x);
+//		model.setDescricao("Adesivos personalizados");
+		
+//		mod.delete(8);
+//		mod.update(model, 5);
+//		mod.save(model);
+//		mod.getById(1);
+//		mod.obtemModelos();
 	}
 
 }
