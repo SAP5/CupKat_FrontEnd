@@ -54,10 +54,9 @@ public class GUICategoriaController {
 		}
 		return mv;
 	}
-    
-    
+      
     @GetMapping("/alteraCat/{id}")
-	public String viewFuncionarioUpdate(@PathVariable("id") Integer id, Model model) {
+	public String viewCategoriaUpdate(@PathVariable("id") Integer id, Model model) {
     	Categoria categoria = new Categoria();
 		categoria = servico.getById(id);
         model.addAttribute("categoria", categoria);
@@ -65,7 +64,7 @@ public class GUICategoriaController {
 	}
     
     @PostMapping("/categorias/update/{id}")
-	public ModelAndView viewCategoriaUpdate(@PathVariable("id") int id, @Valid Categoria categoria, BindingResult result, RedirectAttributes redirectAttributes){
+	public ModelAndView categoriaUpdate(@PathVariable("id") int id, @Valid Categoria categoria, BindingResult result, RedirectAttributes redirectAttributes){
     	ModelAndView mv = new ModelAndView("administrativo/categorias");
     	if (result.hasErrors()) {
     		categoria.setId(id);

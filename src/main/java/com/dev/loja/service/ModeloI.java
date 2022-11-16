@@ -53,7 +53,7 @@ public class ModeloI {
 	 public void update(Modelo modelo, int id){
 	        RestTemplate restTemplate = new RestTemplate();
 	        modelo.setId(id);
-	        String url = "https://cupkat-test.herokuapp.com/modelos/update/{id}";
+	        String url = "https://cupkat-dev.herokuapp.com/modelos/update/{id}";
 	        restTemplate.put(url, modelo, modelo.getId());
 	}
 	

@@ -69,7 +69,7 @@ public class GUIFuncionarioController {
 	}
     
     @PostMapping("/funcionarios/update/{id}")
-	public ModelAndView viewFuncionarioUpdate(@PathVariable("id") int id, @Valid Funcionario funcionario, BindingResult result, RedirectAttributes redirectAttributes){
+	public ModelAndView funcionarioUpdate(@PathVariable("id") int id, @Valid Funcionario funcionario, BindingResult result, RedirectAttributes redirectAttributes){
     	ModelAndView mv = new ModelAndView("administrativo/funcionarios");
     	if (result.hasErrors()) {
     		funcionario.setId(id);

@@ -43,5 +43,13 @@
       
 	<div th:replace="fragments/scriptsAdm :: scripts">
 	</div>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#buttonCancel").on("click", function() {
+				window.location = "[[@{/adm/categorias}]]";
+			});
+		});
+	</script>
 </body>
 </html>

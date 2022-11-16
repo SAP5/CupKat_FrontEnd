@@ -59,7 +59,23 @@ public class GUIModeloController {
     	Modelo modelo = new Modelo();
 		modelo = servico.getById(id);
         model.addAttribute("modelo", modelo);
-		return "administrativo/modelo_form";
+		return "administrativo/modelo_update";
+	}
+    
+    @PostMapping("/modelos/update/{id}")
+	public ModelAndView modeloUpdate(@PathVariable("id") int id, @Valid Modelo modelo, BindingResult result, RedirectAttributes redirectAttributes){
+    	ModelAndView mv = new ModelAndView("administrativo/modelos");
+    	if (result.hasErrors()) {
+    		modelo.setId(id);
+    		mv.addObject("modelo",modelo);
+   			mv.setViewName("administrativo/modelo_update");
+   			
+   		} else {
+   			servico.update(modelo, id);
+   			redirectAttributes.addFlashAttribute("message", "Modelo alterado com sucesso!");
+   			mv.setViewName("redirect:/adm/modelos");
+   		}
+   		return mv;
 	}
     
     @GetMapping("/modelos/delete/{id}")
