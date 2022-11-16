@@ -34,14 +34,12 @@ public class ClientePdfExporter extends AbstractExporter {
 		font.setSize(18);
 		font.setColor(new Color(105, 80, 223));
 		
-		Image jpg = Image.getInstance("C:\\Users\\ghaam\\git\\cupkat - frontend\\src\\main\\resources\\static\\image\\logo_cupkat3.png");
-		jpg.setAlignment(Image.ALIGN_CENTER);
-		jpg.setSpacingBefore(10);
+		
 		
 		Paragraph paragraph = new Paragraph("Lista de Clientes", font);
 		paragraph.setAlignment(Paragraph.ALIGN_CENTER);
 		
-		document.add(jpg);
+	
         document.add(paragraph);
         
 		
