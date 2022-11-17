@@ -1,356 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="Vvveb">
-	<!-- base href="/app/public/themes/default/" -->
-	<base href="">
-	<link rel="icon" href="../../favicon.ico">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1.0 minimum-scale=1.0">
 
-	<title>Home</title>
+<title>Home</title>
 
-	<!-- Bootstrap core CSS -->
-	<link th:href="@{css/homeCliente.css}" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link th:href="@{/css/homeCliente.css}" type="text/css" rel="stylesheet">
 </head>
 
 <body>
-<div class="page-container">
+	<div class="page-container">
 
-    <!--BarraAcessibilidade-->
-	<div id="top-nav" class="bg-light smaller-font-size text-muted">
-		<nav class="navbar-expand-md container px-3">
-		  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
-
-		  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-			<ul class="navbar-nav mr-auto">
-			  <li class="nav-item active">
-				<a class="nav-link text-muted" href="#"><i class="la la-heart"></i> <span class="hidden-xs hidden-sm hidden-md">Favoritos</span></a>
-			  </li>
-			  <li class="nav-item">
-				<a class="nav-link text-muted" href="#"><i class="la la-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Carrinho</span></a>
-			  </li>
-			  <li class="nav-item">
-				<a class="nav-link text-muted" href="#"><i class="la la-share"></i> <span class="hidden-xs hidden-sm hidden-md">Checkout</span></a>
-			  </li>
-			</ul>
-			
-			<ul class="navbar-nav float-right">
-			  <li class="nav-item dropdown float-right">
-				<a class="nav-link dropdown-toggle text-muted" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="la la-dollar"></i>&ensp;pt-br</a>
-				<div class="dropdown-menu" aria-labelledby="dropdown01">
-				  <a class="dropdown-item" href="#">Action</a>
-				  <a class="dropdown-item" href="#">Another action</a>
-				  <a class="dropdown-item" href="#">Something else here</a>
-				</div>
-			  </li>
-
-			  <li class="nav-item dropdown float-right">
-				<a class="nav-link dropdown-toggle text-muted" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="la la-flag"></i>&ensp;EN</a>
-				<div class="dropdown-menu" aria-labelledby="dropdown01">
-				  <a class="dropdown-item" href="#">Action</a>
-				  <a class="dropdown-item" href="#">Another action</a>
-				  <a class="dropdown-item" href="#">Something else here</a>
-				</div>
-			  </li>
-			</ul>
-		  </div>
-		</nav>
-	</div>
-    <!--FimBarraAcessibilidade-->		
-
-	<header class="container mt-5">
+		<div th:replace="fragments/navCli :: navBarCli">
 		
-        <div class="row">
-            
-          <div class="col-md-3">
-              <a href="/" class="logo">
-				<h1 class="text-dark"><img th:src="@{image/logo_cupkat3.png}"/><span>cup<span class="text-secondary">kat</span></span></h1>
-				<small class="text-dark">Miaaaauu</small>              
-              </a>
-          </div>
-  
-          <div class="col-md-5">
-             
-             <form class="">
-      
-                  <div class="input-group input-group-lg mb-3" id="search-box">
-                    <input type="text" class="form-control default-font-size" placeholder="O quê procura?" aria-label="Search product">
-  
-                      <select class="custom-select input-group-append form-control-lg no-border-x default-font-size">
-                          <option selected="">Categorias</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                        </select>
-                    
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button"><i class="la la-search"></i></button>
-                    </div>
-                  </div>
-              </form>
-              
-          </div>
-  
-          <div class="col-md-4">
-              
-              <div class="dropdown float-right" id="mini-cart">
-                <a class="btn btn-link dropdown-toggle bg-faded p-0 chevron-big" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="la la-shopping-cart d-inline-block" style="font-size:42px"><span class="cart-items">3</span></i>&ensp; <div class="d-inline-block text-dark"><span class="small d-block text-left">Carrinho</span><span class="font-weight-bold">R$ 3500.05</span></div>
-                </a>
-  
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-              
-              <div class="dropdown float-right" id="mini-user">
-                <a class="btn btn-link dropdown-toggle bg-faded p-0 chevron-big" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="la la-user d-inline-block" style="font-size:42px"></i>&ensp; <div class="d-inline-block text-dark"><span class="small d-block text-left">Minha conta</span><span class="font-weight-bold">Login/Cadastro</span></div>
-                </a>
-  
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-              
-          </div>
-        
-        </div>
-  
-      
-        <nav class="navbar navbar-light bg-white  rounded navbar-expand-md mt-4">
-          <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                  <li class="nav-item dropdown categories-dropdown">
-                      <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="la la-bars"></i>&ensp;Categorias <i class="la la-angle-down float-right"></i></a>
-                      <div class="dropdown-menu" aria-labelledby="dropdown04">
-                        <a class="dropdown-item" href="#"><i class="la la-desktop"></i> Desktops</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                      </div>
-                    </li>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item dropdown dropdown--canvas dropdown--canvas--left dropdown--canvas--sm">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                      Store Location
-                  </a>
-                  <div class="dropdown-menu">
-                      Hello!
-                  </div>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Delivery Services</a>
-                </li>
-    
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Blog</a>
-                </li>
-    
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Support</a>
-                </li>
-    
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sobre nós</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdown04">
-                    <a class="dropdown-item" href="#">FAQ</a>
-                    <a class="dropdown-item" href="#">Our Story</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Contato</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-  
-  
-      </header>
-    
-    
-    <div class="content">
-    
-		<div class="container">
-			<div class="thickline"></div>
 		</div>
-		
-    
-    	    
-    	<nav class="breadcrumb container">
-		  <a class="breadcrumb-item" href="#">Home</a>
-		  <a class="breadcrumb-item" href="#">Laptops</a>
-		  <a class="breadcrumb-item" href="#">Slim laptops</a>
-		  <span class="breadcrumb-item active">Sony Vaio</span>
-		</nav>
 
-		<div class="container">
-		
-		
-			<div class="row">
+
+		<div class="content">
+
+			<div class="container">
+				<div class="thickline"></div>
+			</div>
+
+
+
+			<nav class="breadcrumb container">
+				<a class="breadcrumb-item" href="#">Home</a> <a
+					class="breadcrumb-item" href="#">Laptops</a> <a
+					class="breadcrumb-item" href="#">Slim laptops</a> <span
+					class="breadcrumb-item active">Sony Vaio</span>
+			</nav>
+
+			<div class="container">
+
+
+				<div class="row">
 					<div class="col-6">
-					<h3>Login</h3>	
-					  <form>
-						<div class="form-group row">
-						  <label for="inputEmail1" class="col-sm-2 col-form-label">Email</label>
-						  <div class="col-sm-10">
-							<input type="email"  class="form-control" id="inputEmail1" placeholder="Email">
-						  </div>
-						</div>
-						<div class="form-group row">
-						  <label for="inputPassword1" class="col-sm-2 col-form-label">Senha</label>
-						  <div class="col-sm-10">
-							<input type="password" name="password" class="form-control" id="inputPassword1" placeholder="Password">
-						  </div>
-						</div>
-						
-						<div class="form-group row">
-						  <div class="offset-sm-2 col-sm-10">
-							<button type="submit" class="btn btn-primary">Sign in</button>
-						  </div>
-						</div>						
-					  </form>
+						<h3>Login</h3>
+						<form>
+							<div class="form-group row">
+								<label for="inputEmail1" class="col-sm-2 col-form-label">Email</label>
+								<div class="col-sm-10">
+									<input type="email" class="form-control" id="inputEmail1"
+										placeholder="Email">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="inputPassword1" class="col-sm-2 col-form-label">Senha</label>
+								<div class="col-sm-10">
+									<input type="password" name="password" class="form-control"
+										id="inputPassword1" placeholder="Password">
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class="offset-sm-2 col-sm-10">
+									<button type="submit" class="btn btn-primary">Sign in</button>
+								</div>
+							</div>
+						</form>
 					</div>
-					
+
 					<div class="col-6 ">
-					<h3>Cadastrar</h3>
-					  <form th:action="@{/saveUser}" method="post" th:object="${cliente}"
-					  onsubmit="return checkEmailUnique(this);">
-					  <input type="hidden" th:field="*{id}">
-						<div class="form-group row">
-						  <label for="inputNome2" class="col-sm-2 col-form-label">Nome</label>
-						  <div class="col-sm-10">
-							<input type="text" th:field="*{nome}" class="form-control" id="inputNome2" placeholder="Nome">
-							<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger"></span>
-						</div>
-						  
-						</div>
-						<div class="form-group row">
-						  <label for="inputCpf2" class="col-sm-2 col-form-label">CPF</label>
-						  <div class="col-sm-10">
-							<input type="text" th:field="*{cpf}" class="form-control" id="inputCpf2" placeholder="CPF">
-						  	<span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" class="text-danger"></span>
-						  </div>
-						</div>
-						<div class="form-group row">
-						  <label for="inputEmail3" class="col-sm-2 col-form-label">E-mail</label>
-						  <div class="col-sm-10">
-							<input type="email" th:field="*{email}" class="form-control" id="email" placeholder="E-mail">
-						  	<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
-						  </div>
-						</div>
-                        <div class="form-group row">
-                            <label for="inputSenha3" class="col-sm-2 col-form-label">Senha</label>
-                            <div class="col-sm-10">
-                              <input type="password" th:field="*{senha}" class="form-control" id="inputSenha3" placeholder="Senha">
-                              <span th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}" class="text-danger"></span>
-                            </div>
-                          </div>
-						
-						<div class="form-group row">
-						  <div class="offset-sm-2 col-sm-10">
-							<button type="submit" class="btn btn-primary">Criar conta</button>
-						  </div>
-						</div>						
-					  </form>
+						<h3>Cadastrar</h3>
+						<form th:action="@{/saveUser}" method="post"
+							th:object="${cliente}" onsubmit="return checkEmailUnique(this);">
+							<input type="hidden" th:field="*{id}">
+							<div class="form-group row">
+								<label for="inputNome2" class="col-sm-2 col-form-label">Nome</label>
+								<div class="col-sm-10">
+									<input type="text" th:field="*{nome}" class="form-control"
+										id="inputNome2" placeholder="Nome"> <span
+										th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"
+										class="text-danger"></span>
+								</div>
+
+							</div>
+							
+							<div class="form-group row">
+								<label for="inputEmail3" class="col-sm-2 col-form-label">E-mail</label>
+								<div class="col-sm-10">
+									<input type="email" th:field="*{email}" class="form-control"
+										id="email" placeholder="E-mail"> <span
+										th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+										class="text-danger"></span>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="inputSenha3" class="col-sm-2 col-form-label">Senha</label>
+								<div class="col-sm-10">
+									<input type="password" th:field="*{senha}" class="form-control"
+										id="inputSenha3" placeholder="Senha"> <span
+										th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}"
+										class="text-danger"></span>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class="offset-sm-2 col-sm-10">
+									<button type="submit" class="btn btn-primary">Criar
+										conta</button>
+								</div>
+							</div>
+						</form>
 					</div>
+				</div>
+
 			</div>
 
-    </div>
 
+		</div>
 
-    </div>
-    
-    </div>
-    
+	</div>
+
 	<div class="modal fade text-center" id="modalDialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title" id="modalTitle">Warning</h4>
-						<button type="button" class="close" data-bs-dismiss="modal">&times;</button>
-					</div>
-					<div class="modal-body">
-						<span id="modalBody"></span>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger"
-							data-bs-dismiss="modal">Close</button>
-					</div>
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="modalTitle">Warning</h4>
+					<button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<span id="modalBody"></span>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger"
+						data-bs-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>
-	
+	</div>
+
 	<footer class="bg-faded text-muted py-5 mt-5">
-	  <div class="container">
-		<div class="row">
-				  <div class="col-sm-3">
-			  <h5>Information</h5>
-			  <ul class="list-unstyled">
-				  <li><a href="#">About Us</a></li>
-				  <li><a href="#">Delivery Information</a></li>
-				  <li><a href="#">Privacy Policy</a></li>
-				  <li><a href="#">Terms &amp; Conditions</a></li>
-			  </ul>
-			</div>
+		<div class="container">
+			<div class="row">
 				<div class="col-sm-3">
-			<h5>Customer Service</h5>
-			<ul class="list-unstyled">
-			  <li><a href="#">Contact Us</a></li>
-			  <li><a href="#">Returns</a></li>
-			  <li><a href="#">Site Map</a></li>
-			</ul>
-		  </div>
-		  <div class="col-sm-3">
-			<h5>Extras</h5>
-			<ul class="list-unstyled">
-			  <li><a href="#">Brands</a></li>
-			  <li><a href="#">Gift Certificates</a></li>
-			  <li><a href="#">Affiliate</a></li>
-			  <li><a href="#">Specials</a></li>
-			</ul>
-		  </div>
-		  <div class="col-sm-3">
-			<h5>My Account</h5>
-			<ul class="list-unstyled">
-			  <li><a href="#">My Account</a></li>
-			  <li><a href="#">Order History</a></li>
-			  <li><a href="#">Wish List</a></li>
-			  <li><a href="#">Newsletter</a></li>
-			</ul>
-		  </div>
-		</div>
+					<h5>Information</h5>
+					<ul class="list-unstyled">
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Delivery Information</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="#">Terms &amp; Conditions</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-3">
+					<h5>Customer Service</h5>
+					<ul class="list-unstyled">
+						<li><a href="#">Contact Us</a></li>
+						<li><a href="#">Returns</a></li>
+						<li><a href="#">Site Map</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-3">
+					<h5>Extras</h5>
+					<ul class="list-unstyled">
+						<li><a href="#">Brands</a></li>
+						<li><a href="#">Gift Certificates</a></li>
+						<li><a href="#">Affiliate</a></li>
+						<li><a href="#">Specials</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-3">
+					<h5>My Account</h5>
+					<ul class="list-unstyled">
+						<li><a href="#">My Account</a></li>
+						<li><a href="#">Order History</a></li>
+						<li><a href="#">Wish List</a></li>
+						<li><a href="#">Newsletter</a></li>
+					</ul>
+				</div>
+			</div>
 			<p class="float-right">
-			  <a href="#">Back to top</a>
+				<a href="#">Back to top</a>
 			</p>
-	  </div>
+		</div>
 	</footer>
-</div>    
-    
+	</div>
 
 
-    <script>
+
+	<script>
     $('#product-tabs a').click(function (e) {
 	  e.preventDefault()
 	  $(this).tab('show')
 	})
     </script>
-    <script type="text/javascript">
+	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#buttonCancel").on("click", function() {
 				window.location = "[[@{/users}]]";
@@ -363,7 +201,7 @@
 			userId = $("#id").val();
 			csrfValue = $("input[name='_csrf']").val();
 			
-			params = {id: userId, email: userEmail};
+			params = {id: userId, email: userEmail, _csrf: csrfValue};
 			
 			$.post(url, params, function(response) {
 				if (response == "OK"){
@@ -388,9 +226,10 @@
 		}
 		
 	</script>
-    
-    
-    <script type="text/javascript" th:src="@{webjars/jquery/jquery.min.js}"></script>
-	<script type="text/javascript" th:src="@{webjars/bootstrap/js/bootstrap.min.js}"></script>
-  </body>
+
+
+	<script type="text/javascript" th:src="@{webjars/jquery/jquery.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
 </html>
