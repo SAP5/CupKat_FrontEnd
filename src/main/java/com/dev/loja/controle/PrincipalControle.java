@@ -18,12 +18,4 @@ public class PrincipalControle {
 	public String homeCliente() {
 		return "cliente/home";
 	}
-
-	@GetMapping("/adm")
-	public String homeAdm(Model model) {
-		Cliente cliente = new Cliente();
-		model.addAttribute("cliente",cliente);
-		return "administrativo/index";
-	}
-
 }
