@@ -1,4 +1,4 @@
-package com.dev.loja.controle.cliente;
+package com.dev.loja.controle;
 
 import javax.validation.Valid;
 

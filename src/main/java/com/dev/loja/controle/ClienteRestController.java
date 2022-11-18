@@ -1,4 +1,4 @@
-package com.dev.loja.controle.cliente;
+package com.dev.loja.controle;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;

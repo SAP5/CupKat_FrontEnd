@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.dev.loja.model.Categoria;
-import com.dev.loja.model.Funcionario;
+
 
 @Service
 public class CategoriaI {
