@@ -8,6 +8,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -16,6 +17,10 @@ import com.dev.loja.model.Cliente;
 
 @Service
 public class ClienteI {
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
     public List<Cliente> obtemClientes() { 
         String url = "https://cupkat-test.herokuapp.com/clientes/"; 
         
@@ -36,6 +41,7 @@ public class ClienteI {
     }
 
     public void save(Cliente cliente){
+    	encodePassword(cliente);
         RestTemplate restTemplate = new RestTemplate();
 
         String url = "https://cupkat-test.herokuapp.com/clientes";
@@ -101,4 +107,11 @@ public class ClienteI {
 		}
 		return true;
     }
+    
+    private void encodePassword(Cliente cliente) {
+		System.out.println(cliente.getSenha());
+		String encodedPassword = passwordEncoder.encode(cliente.getSenha());
+		System.out.println(encodedPassword);
+		cliente.setSenha(encodedPassword);
+	}
 }

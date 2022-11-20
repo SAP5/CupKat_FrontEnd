@@ -1,13 +1,12 @@
 package com.dev.loja;
 
 
-import java.math.BigDecimal;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.dev.loja.model.Modelo;
-import com.dev.loja.service.ModeloI;
+import com.dev.loja.model.Cliente;
+import com.dev.loja.service.ClienteI;
 
 
 @SpringBootApplication
@@ -102,6 +101,18 @@ public class LojaApplication {
 //		mod.save(model);
 //		mod.getById(1);
 //		mod.obtemModelos();
+		
+//		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//		ClienteI func = new ClienteI();
+//		Cliente c = new Cliente();
+//		c.setNome("New");
+//		c.setCpf("54678345");
+//		c.setEmail("new@teste.com");
+//		c.setSenha("1234");
+//		String encodedPassword = passwordEncoder.encode(c.getSenha());
+//		c.setSenha(encodedPassword);
+//		System.out.println(encodedPassword);
+//		func.save(c);
 	}
 
 }

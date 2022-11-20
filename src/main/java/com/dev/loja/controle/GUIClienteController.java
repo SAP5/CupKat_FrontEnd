@@ -26,7 +26,7 @@ public class GUIClienteController {
 	public String formCliente(Model model) {
         Cliente cliente = new Cliente();
         model.addAttribute("cliente",cliente);
-		return "cliente/cliente_form";
+		return "cliente_form";
 	}
 
 
@@ -43,12 +43,12 @@ public class GUIClienteController {
 		ModelAndView mv = new ModelAndView("home");
 		if (result.hasErrors()) {
 			mv.addObject("cliente", cliente);
-			mv.setViewName("cliente/cliente_form");
+			mv.setViewName("cliente_form");
 		} else {
 			servico.save(cliente);
-			mv.setViewName("cliente/home");
-			redirectAttributes.addFlashAttribute("message", "Usuário criado com sucesso!");
-			mv.setViewName("redirect:/");
+			mv.setViewName("cliente_form");
+			redirectAttributes.addFlashAttribute("message", "Usuário criado, por favor realize o login!");
+			mv.setViewName("redirect:/cliente");
 		}
 		return mv;
 	}

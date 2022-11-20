@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -112,16 +112,18 @@
 			  </div>
 			</div>
 			
+			<form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+				<input type="submit"/>
+			</form>
+			
 			<div class="dropdown float-right" id="mini-user">
-			  <a class="btn btn-link dropdown-toggle bg-faded p-0 chevron-big" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  th:href="@{/cliente}">
-				<i class="la la-user d-inline-block" style="font-size:42px"></i>&ensp; <div class="d-inline-block text-dark"><span class="small d-block text-left">Minha conta</span><span class="font-weight-bold">Login/Cadastro</span></div>
-			  </a>
-
-			  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-				<a class="dropdown-item" href="#">Action</a>
-				<a class="dropdown-item" href="#">Another action</a>
-				<a class="dropdown-item" href="#">Something else here</a>
-			  </div>
+				<i class="la la-user d-inline-block text-primary" style="font-size:42px"></i>&ensp;
+				<div class="d-inline-block text-dark">
+					<span class="small d-block text-left name" sec:authorize="isAnonymous()">Minha conta</span>
+					<span class="small d-block text-left name" sec:authorize="isAuthenticated()" sec:authentication="principal.fullname"></span>
+					<a class="btn btn-link dropdown-toggle bg-faded p-0" th:href="@{/cliente}"><span class="font-weight-bold" sec:authorize="isAnonymous()">Login/Cadastro</span></a>
+					<a class="btn btn-link bg-fated p-0" href="" id="logoutLink"><span class="font-weight-bold" sec:authorize="isAuthenticated()">Logout</span></a>
+				</div>
 			</div>
 		</div>
 	  </div>
@@ -324,14 +326,23 @@
 			<a href="#">Back to top</a>
 			</p>
 		</div>
-	</footer>    
+	</footer>
+	<script type="text/javascript" th:src="@{webjars/jquery/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{webjars/bootstrap/js/bootstrap.min.js}"></script>    
     <script>
     $('#product-tabs a').click(function (e) {
 	  e.preventDefault()
 	  $(this).tab('show')
 	})
     </script>
-    <script type="text/javascript" th:src="@{webjars/jquery/jquery.min.js}"></script>
-	<script type="text/javascript" th:src="@{webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script type="text/javascript">
+		$(document).ready(function() {
+			$("#logoutLink").on("click", function(e) {
+				e.preventDefault();
+				document.logoutForm.submit();
+			});
+		});
+	</script>
+    
   </body>
 </html>

@@ -109,16 +109,15 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<!-- PDF-->
-		<dependency>
-			<groupId>com.github.librepdf</groupId>
-			<artifactId>openpdf</artifactId>
-			<version>1.3.8</version>
-		</dependency>
 		<!-- SECURITY-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<!--Spring security adicional -->
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
 		</dependency>
 	</dependencies>
 

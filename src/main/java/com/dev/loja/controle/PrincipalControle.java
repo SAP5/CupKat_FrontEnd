@@ -16,6 +16,13 @@ public class PrincipalControle {
 	
 	@GetMapping("/")
 	public String homeCliente() {
-		return "cliente/home";
+		return "home";
+	}
+	
+	@GetMapping("/login")
+	public String loginCliente(Model model) {
+		Cliente cliente = new Cliente();
+		model.addAttribute("cliente",cliente);
+		return "cliente_form";
 	}
 }
